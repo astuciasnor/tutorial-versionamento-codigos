@@ -32,7 +32,7 @@ do Git.
 library(usethis)
 ```
 
-## **Configurando o Git/GitHub no RStudio**
+## **1.1 Configurando o Git/GitHub no RStudio**
 
 Utilizaremos o pacote `usethis` para integrar o Git ao GitHub. Você
 precisará das suas credenciais do GitHub (nome de usuário e e-mail), que
@@ -44,7 +44,7 @@ usethis::use_git_config(user.name = "Seu Nome",
                         user.email = "seu.email@exemplo.com")
 ```
 
-## Criando e Configurando um Token de Acesso Pessoal (PAT) no RStudio
+## 1.2 Criando e Configurando um Token de Acesso Pessoal (PAT) no RStudio
 
 1.  Para autenticar o GitHub no RStudio, você precisará criar ou
     regenerar um token de acesso pessoal (PAT). Para isso, execute o
@@ -87,7 +87,7 @@ Vamos criar nosso primeiro repositório para uso pessoal e, também,
 verificar se as conexões entre o RStudio e Github via Git estão
 funcionando corretamente.
 
-## Criando repositório primeiro no Github
+## 2.1 Criando repositório primeiro no Github
 
 A maneira mais eficiente de criar um novo repositório é diretamente pelo
 site do GitHub, pois isso garante que todas as configurações sejam
@@ -110,7 +110,7 @@ corretamente definidas desde o início.
 
 <img src="images/clipboard-142360520.png" width="637" />
 
-### **Clonando o Repositório no Seu Computador**
+### **2.1.1 Clonando o Repositório no Seu Computador**
 
 Depois de criar o repositório no GitHub, o próximo passo é clonar o
 repositório para sua máquina local, criando uma cópia que você poderá
@@ -139,7 +139,7 @@ via Git está funcionando.
     diretamente, enviando e recebendo alterações entre o repositório
     local e o GitHub.
 
-### **Implementando alterações em seu projeto**
+### **2.1.2 Implementando alterações em seu projeto**
 
 Agora que o repositório está configurado no RStudio, você pode realizar
 pequenas alterações para testar o controle de versão com Git e GitHub.
@@ -170,7 +170,7 @@ repositório.
     - Acesse seu repositório no GitHub e verifique se as mudanças (a
       nova pasta e arquivo) foram sincronizadas corretamente.
 
-### **Alterando via GitHub o arquivo `README.md` e Realizando Pull**
+### **2.1.3 Alterando via GitHub o arquivo `README.md` e Realizando Pull**
 
 1.  Acesse a página do seu repositório no GitHub.
 
@@ -187,7 +187,7 @@ Agora, volte para o RStudio:
 2.  Verifique o arquivo `README.md` no RStudio para confirmar que a
     alteração feita no GitHub foi aplicada corretamente.
 
-### **Incluindo Pastas e Arquivos no `.gitignore`**
+### **2.1.4 Incluindo Pastas e Arquivos no `.gitignore`**
 
 Nem todos os arquivos e pastas precisam ser compartilhados no
 repositório. Para evitar que certos arquivos sejam versionados, você
@@ -211,7 +211,7 @@ pode listá-los no arquivo `.gitignore`.
     Lembre-se de verificar se os arquivos listados no `.gitignore` estão
     de fato sendo ignorados ao tentar comitar.
 
-## Criando o Repositório no Computador
+## 2.2 Criando o Repositório no Computador
 
 Embora o método mais recomendado seja criar o repositório diretamente no
 GitHub e depois cloná-lo no seu computador, também é possível criar um
@@ -233,7 +233,7 @@ Ao usar esse fluxo, o projeto será criado no caminho especificado em seu
 computador, vinculado ao Git local e, posteriormente, sincronizado com o
 GitHub.
 
-## **Criando a partir de um Projeto Existente no Computador**
+## **2.3 Criando a partir de um Projeto Existente no Computador**
 
 Se você já possui um projeto no seu computador e deseja vinculá-lo ao
 Git e ao GitHub, pode facilmente fazer isso sem criar um novo projeto do
@@ -320,25 +320,25 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 
 ### 4.1.2 Atualizando sua main local
 
-1.  Muda para a branch main local:
+1.  Mudar para a branch main local:
 
 ``` bash
 git checkout main
 ```
 
-2.  Busca todas as atualizações do repositório original
+2.  Buscar todas as atualizações do repositório original
 
 ``` bash
 git fetch upstream
 ```
 
-3.  Integra as mudanças do upstream/main em sua main local
+3.  Integrar as mudanças do upstream/main em sua main local
 
 ``` bash
 git merge upstream/main
 ```
 
-4.  Envia as atualizações para seu fork no GitHub
+4.  Enviar as atualizações para seu fork no GitHub
 
 ``` bash
 git push origin main
@@ -374,32 +374,32 @@ Nesta etapa, você fará as alterações necessárias no projeto. Lembre-se:
 Agora como exercício, faça as modificações no arquivo desejado
 (`login.txt`). Inclua o campo: `digite nome pet.`
 
-1.  Após realizar as modificações, verifique quais arquivos foram
+1.  Após realizar as modificações, verificar quais arquivos foram
     modificados
 
 ``` bash
 git status
 ```
 
-2.  Verifica as alterações específicas em cada arquivo:
+2.  Verificar as alterações específicas em cada arquivo:
 
 ``` bash
 git diff nome-do-arquivo
 ```
 
-3.  Adiciona alterações específicas ao stage:
+3.  Adicionar alterações específicas ao stage:
 
 ``` bash
 git add nome-do-arquivo
 ```
 
-4.  Ou adiciona todas as alterações ao stage:
+4.  Ou adicionar todas as alterações ao stage:
 
 ``` bash
 git add .
 ```
 
-5.  Salva as alterações em um commit
+5.  Salvar as alterações em um commit
 
 ``` bash
 git commit -m "Descrição das alterações"
@@ -413,19 +413,19 @@ git commit --amend -m "Nova mensagem de commit"
 
 ### 4.1.5 Atualizando sua branch com main antes do PR
 
-1.  Busca as últimas alterações do repositório original
+1.  Buscar as últimas alterações do repositório original
 
 ``` bash
 git fetch upstream
 ```
 
-2.  Reaplica seus commits sobre a versão mais atual do upstream
+2.  Reaplicar seus commits sobre a versão mais atual do upstream
 
 ``` bash
 git rebase upstream/main
 ```
 
-3.  Envia sua branch atualizada para seu fork
+3.  Enviar sua branch atualizada para seu fork
 
 ``` bash
 git push origin feature/nome-da-feature
@@ -482,31 +482,31 @@ git push origin feature/nome-da-feature
 
 ### 4.1.7 Após o Merge do PR
 
-1.  Retorna para a branch main
+1.  Retornar para a branch main
 
 ``` bash
 git checkout main
 ```
 
-2.  Atualiza sua main local com as mudanças do upstream
+2.  Atualizar sua main local com as mudanças do upstream
 
 ``` bash
 git pull upstream main
 ```
 
-3.  Atualiza a main do seu fork
+3.  Atualizar a main do seu fork
 
 ``` bash
 git push origin main
 ```
 
-4.  Remove a branch de feature localmente
+4.  Remover a branch de feature localmente
 
 ``` bash
 git branch -d feature/nome-da-feature
 ```
 
-5.  Remove a branch de feature do seu fork remoto
+5.  Remover a branch de feature do seu fork remoto
 
 ``` bash
 git push origin --delete feature/nome-da-feature
@@ -605,32 +605,32 @@ exmplo. você fará as alterações necessárias no projeto. Lembre-se:
   desenvolvendo
 - Faça commits frequentes para não perder trabalho
 
-1.  Após realizar as modificações, verifique quais arquivos foram
+1.  Após realizar as modificações, verificar quais arquivos foram
     modificados
 
 ``` bash
 git status
 ```
 
-2.  Verifica as alterações específicas em cada arquivo:
+2.  Verificar as alterações específicas em cada arquivo:
 
 ``` bash
 git diff nome-do-arquivo
 ```
 
-3.  Adiciona alterações específicas ao stage:
+3.  Adicionar alterações específicas ao stage:
 
 ``` bash
 git add nome-do-arquivo
 ```
 
-4.  Ou adiciona todas as alterações ao stage:
+4.  Ou adicionar todas as alterações ao stage:
 
 ``` bash
 git add .
 ```
 
-5.  Salva as alterações em um commit
+5.  Salvar as alterações em um commit
 
 ``` bash
 git commit -m "Descrição das alterações"
@@ -722,7 +722,7 @@ git checkout main
 git pull upstream main
 ```
 
-3.  Atualizara main do seu fork
+3.  Atualizar a main do seu fork
 
 ``` bash
 git push origin main
@@ -763,7 +763,7 @@ ela, sem perder nada. Veja como proceder:
 
 ## 5.1 Salvando alterações atuais
 
-1.  Salva temporariamente suas alterações não commitadas
+1.  Salvar temporariamente suas alterações não commitadas
 
 ``` bash
 git stash save "Alterações em progresso"
@@ -771,19 +771,19 @@ git stash save "Alterações em progresso"
 
 ## 5.2 Atualizando main e criando branch
 
-1.  Busca atualizações do repositório original
+1.  Buscar atualizações do repositório original
 
 ``` bash
 git fetch upstream
 ```
 
-2.  Integra mudanças do upstream
+2.  Integrar mudanças do upstream
 
 ``` bash
 git merge upstream/main
 ```
 
-3.  Cria e muda para nova branch
+3.  Criar e muda para nova branch
 
 ``` bash
 git checkout -b feature/sua-feature
@@ -799,19 +799,19 @@ git stash pop
 
 ## 5.4 Após resolver conflitos (se houver)
 
-1.  Adiciona arquivos resolvidos ao stage
+1.  Adicionar arquivos resolvidos ao stage
 
 ``` bash
 git add .
 ```
 
-2.  Cria commit com as alterações
+2.  Criar commit com as alterações
 
 ``` bash
 git commit -m "Descrição das alterações recuperadas"
 ```
 
-3.  Envia branch para seu fork
+3.  Enviar branch para seu fork
 
 ``` bash
 git push origin feature/sua-feature
@@ -986,25 +986,25 @@ revisar ou modificar mais antes de commitá-lo.
 
 ## 8.2. Comandos úteis
 
-1.  Mostra estado atual do repositório
+1.  Mostrar estado atual do repositório
 
 ``` bash
 git status
 ```
 
-2.  Lista todas as branches locais
+2.  Listar todas as branches locais
 
 ``` bash
 git branch
 ```
 
-3.  Mostra todos os repositórios remotos configurados
+3.  Mostrar todos os repositórios remotos configurados
 
 ``` bash
 git remote -v
 ```
 
-4.  Exibe histórico de commits de forma resumida
+4.  Exibir histórico de commits de forma resumida
 
 ``` bash
 git log --oneline
