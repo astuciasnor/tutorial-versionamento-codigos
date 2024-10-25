@@ -19,9 +19,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: end -->
 
-## Objetivo
-
-Este Tutorial de uso do Git/Github em R/RStudio tem como objetivo fornecer orientações práticas para usuários iniciantes e intermediários sobre como usar o Git e o GitHub diretamente na interface do RStudio para controle de versão de códigos em projetos em R. Na primeira parte, utilizamos as funções do pacote `usethis`, e na seção "Trabalhando com Versionamento", passamos a usar diretamente os comandos do Git.
+Este Tutorial de uso do Git/Github em R/RStudio tem como objetivo fornecer orientações práticas para usuários iniciantes e intermediários sobre como usar o Git e o GitHub diretamente na interface do RStudio para controle de versão de códigos em projetos em R. Na primeira parte, utilizamos as funções do pacote `usethis`, e a partir da seção "Trabalhando com Versionamento", passamos a usar diretamente os comandos do Git.
 
 # Instruções Inicias para uso do Git/Github
 
@@ -37,7 +35,7 @@ Este Tutorial de uso do Git/Github em R/RStudio tem como objetivo fornecer orien
 library(usethis)
 ```
 
-# **Configurando o Git/GitHub no RStudio**
+## **Configurando o Git/GitHub no RStudio**
 
 Utilizaremos o pacote `usethis` para integrar o Git ao GitHub. Você precisará das suas credenciais do GitHub (nome de usuário e e-mail), que podem ser encontradas em **Configurações → Perfil Público** no GitHub.
 
@@ -47,7 +45,7 @@ usethis::use_git_config(user.name = "Seu Nome",
                         user.email = "seu.email@exemplo.com")
 ```
 
-## Criando e Configurando um Token de Acesso Pessoal (PAT)
+## Criando e Configurando um Token de Acesso Pessoal (PAT) no RStudio
 
 1.  Para autenticar o GitHub no RStudio, você precisará criar ou regenerar um token de acesso pessoal (PAT). Para isso, execute o comando abaixo:
 
@@ -88,13 +86,13 @@ A maneira mais eficiente de criar um novo repositório é diretamente pelo site 
 
 2.  Defina o nome do repositório, adicione uma descrição (opcional), e escolha se deseja que o repositório seja público ou privado.
 
-3.  Marque a opção **"Add a README file"** para inicializar o repositório com um arquivo README, que você pode editar posteriormente.
+3.  Marque a opção **"Add a README file"** para inicializar o repositório com um arquivo `README.md`, que você pode editar posteriormente.
 
 4.  Preencha as informações conforme figura abaixo e clique no botão **"Create repository"** para finalizar a criação.
 
 ![](images/clipboard-142360520.png){width="637"}
 
-## **Clonando o Repositório no Seu Computador**
+### **Clonando o Repositório no Seu Computador**
 
 Depois de criar o repositório no GitHub, o próximo passo é clonar o repositório para sua máquina local, criando uma cópia que você poderá modificar diretamente no RStudio. Esta etapa verifica se a comunicação via Git está funcionando.
 
@@ -112,7 +110,7 @@ Depois de criar o repositório no GitHub, o próximo passo é clonar o repositó
 
 3.  Após esses passos, o RStudio criará uma cópia completa do seu repositório localmente, já vinculada ao Git e ao GitHub. Isso significa que você poderá gerenciar o versionamento do projeto diretamente, enviando e recebendo alterações entre o repositório local e o GitHub.
 
-## **Implementando alterações em seu projeto**
+### **Implementando alterações em seu projeto**
 
 Agora que o repositório está configurado no RStudio, você pode realizar pequenas alterações para testar o controle de versão com Git e GitHub. Estes procedimentos são aplicáveis quando apenas você interage com o repositório.
 
@@ -133,7 +131,7 @@ Agora que o repositório está configurado no RStudio, você pode realizar peque
 
     -   Acesse seu repositório no GitHub e verifique se as mudanças (a nova pasta e arquivo) foram sincronizadas corretamente.
 
-### **Alterando o `README.md` no GitHub e Realizando Pull**
+### **Alterando via GitHub o arquivo `README.md` e Realizando Pull**
 
 1.  Acesse a página do seu repositório no GitHub.
 
@@ -163,15 +161,9 @@ Nem todos os arquivos e pastas precisam ser compartilhados no repositório. Para
 /output
 ```
 
-3.  Salve o arquivo e faça um commit dessas alterações. Lembre-se de verificar se os arquivos listados no `.gitignore` estão de fato sendo ignorados ao tentar comitar.
-
-### Inclua pastas e arquivos no arquivo .gitignore
-
-Geralmente precisamos que arquivos e pastas não sejam compartilhados/divulgados. Para isso, insira as pastas e arquivos no arquivo .`gitignore`. Verifique neste Projeto_Teste_Fork quais pastas e arquivos não são compartilhados.
+3.  Salve o arquivo e faça um commit e um push dessas alterações. Lembre-se de verificar se os arquivos listados no `.gitignore` estão de fato sendo ignorados ao tentar comitar.
 
 ## Criando o Repositório no Computador
-
-### Criando um respositório novo no computador e ligando ao Github
 
 Embora o método mais recomendado seja criar o repositório diretamente no GitHub e depois cloná-lo no seu computador, também é possível criar um repositório localmente no seu computador e vinculá-lo ao GitHub da seguinte maneira:
 
@@ -188,7 +180,7 @@ usethis::use_github()
 
 Ao usar esse fluxo, o projeto será criado no caminho especificado em seu computador, vinculado ao Git local e, posteriormente, sincronizado com o GitHub.
 
-### **Criando a partir de um Projeto Existente no Computador**
+## **Criando a partir de um Projeto Existente no Computador**
 
 Se você já possui um projeto no seu computador e deseja vinculá-lo ao Git e ao GitHub, pode facilmente fazer isso sem criar um novo projeto do zero.
 
@@ -206,17 +198,17 @@ usethis::use_github()
 
 Esses comandos ligarão seu projeto ao Git, permitindo controle de versão, e o subirão para o GitHub, criando um repositório remoto pareado com o seu projeto local.
 
-## **Clonando e Bifurcando um Repositório (Fork)**
+# **Clonando e Bifurcando um Repositório (Fork)**
 
 Ao colaborar com outras pessoas em projetos no GitHub, pode ser útil não apenas clonar um repositório, mas também bifurcá-lo (fazer um *fork*). Isso permite que você trabalhe em uma cópia do repositório, mantendo a conexão com o original para futuras contribuições ou atualizações.
 
-Para fazer isso diretamente no RStudio de maneira eficiente, use o pacote `usethis`, e o copie, cole em um script R e execute o seguinte comando:
+Para fazer isso diretamente no RStudio e de maneira eficiente, recomendamos o uso do pacote `usethis`. Copie e cole o comando abaixo em um script R, troque as informações e execute o comando:
 
 ```{r, echo = TRUE, eval = FALSE}
 
 # Clonando e bifurcando (fork) o repositório para o seu GitHub
 usethis::create_from_github(
-  repo_spec = "https://github.com/Evaldo-Martins-STAT/Projeto_Teste_Fork",
+  repo_spec = "https://github.com/usuario-original/nome-repositorio.git",
   destdir = "D:/Git/Clube_Codigo/",
   fork = TRUE
 )
@@ -227,23 +219,59 @@ Neste comando, temos:
 -   **`repo_spec`** especifica a URL do repositório no GitHub que você deseja bifurcar.
 -   **`destdir`** define o diretório local onde o repositório será salvo no seu computador.
 -   **`fork = TRUE`** indica que você deseja criar um *fork* do repositório original no seu próprio GitHub, permitindo que você trabalhe de forma independente no projeto.
+-   Obs: o `usethis::create_from_github()` simplifica muito o processo ao fazer tudo em um único comando: ele clona o repositório, cria o fork no GitHub e configura os remotos `origin` e `upstream` de forma automática e integrada com o RStudio.
 
 # **Trabalhando com Versionamento no Terminal**
 
 Após ter criado uma cópia do repositório e a ele ter sido permitida bifucação (ões) (fork), você, enquanto mantenedor, pode querer melhorar ainda mais seus códigos dentro do projeto de análise. Siga os passos abaixo para inserir suas alterações em arquivos editáveis como `.R`, `.Rmd`, `.qmd`, `.csv`, `.xlsx`, ou até mesmo adicionar arquivos não editáveis às pastas do projeto.
 
--   Obs: as etapas descritivas abaixo são válidas quando você é proprietário do repositório. A partir de agora, vamos usar apenas terminal (bash) do RStudio para trabalhar de forma mais eficiente com o Git.
+-   Obs: as etapas descritivas abaixo são válidas quando você é proprietário do repositório em bifurcação (fork). A partir de agora, vamos usar apenas terminal (bash) do RStudio para trabalhar de forma mais eficiente com o Git.
 
 ## Versionando enquanto mantenedor
 
-Antes de começar, atualize a sua branch master local:
+### **Configuração inicial do upstream**
+
+Se você ainda não fez a configuração inicial do upstream, será necessário fazê-lo.
+
+Conecta seu repositório local com o repositório original (upstream):
 
 ```{bash, echo = TRUE, eval = FALSE}
-git checkout master
-git pull
+git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 ```
 
-### **Criação de Branches e Commits**
+### Atualizando sua main local
+
+1.  Muda para a branch main local:
+
+```{bash, echo = TRUE, eval = FALSE}
+git checkout main
+```
+
+2.  Busca todas as atualizações do repositório original
+
+```{bash, echo = TRUE, eval = FALSE}
+git fetch upstream
+```
+
+3.  Integra as mudanças do upstream/main em sua main local
+
+```{bash, echo = TRUE, eval = FALSE}
+git merge upstream/main
+```
+
+4.  Envia as atualizações para seu fork no GitHub
+
+```{bash, echo = TRUE, eval = FALSE}
+git push origin main
+```
+
+### **Criando e mudando para nova branch**
+
+Crie e mude para uma nova branch de feature. Crie uma nova branch de nome `login1` para realizar as alterações:
+
+```{bash, echo = TRUE, eval = FALSE}
+git checkout -b feature/nome-da-feature
+```
 
 Para listar as branches locais e verificar em qual você está trabalhando, utilize:
 
@@ -251,29 +279,152 @@ Para listar as branches locais e verificar em qual você está trabalhando, util
 git branch
 ```
 
-Agora, crie uma nova branch de nome `login1` para realizar as alterações:
+### Fazendo alterações no projeto
+
+Nesta etapa, você fará as alterações necessárias no projeto. Lembre-se:
+
+-    Você pode modificar múltiplos arquivos em diferentes pastas
+-    Crie novos arquivos conforme necessário
+-    Exclua arquivos que não são mais necessários
+-    Mantenha as alterações focadas na feature/correção que está desenvolvendo
+-    Faça commits frequentes para não perder trabalho
+
+Agora como exercício, faça as modificações no arquivo desejado (`login.txt`). Inclua o campo: `digite nome pet.`
+
+1.  Após realizar as modificações, verifique quais arquivos foram modificados
 
 ```{bash, echo = TRUE, eval = FALSE}
-git checkout -b nome-da-branch
+git status
 ```
 
-**Realização de Mudanças** **no Projeto:**
-
-Agora faça as modificações no arquivo desejado (`login.txt`). Inclua o campo: `digite nome pet.` Após realizar as modificações, adicione-as ao controle de versão e faça o commit:
+2.  Verifica as alterações específicas em cada arquivo:
 
 ```{bash, echo = TRUE, eval = FALSE}
+git diff nome-do-arquivo
+```
+
+3.  Adiciona alterações específicas ao stage:
+
+```{bash, echo = TRUE, eval = FALSE}
+git add nome-do-arquivo
+```
+
+4.  Ou adiciona todas as alterações ao stage:
+
+```{bash,echo = TRUE, eval = FALSE}
 git add .
 ```
+
+5.  Salva as alterações em um commit
 
 ```{bash, echo = TRUE, eval = FALSE}
 git commit -m "Descrição das alterações"
 ```
 
+6.  Caso precise modificar o último commit (antes do push)
+
 ```{bash, echo = TRUE, eval = FALSE}
-git push --set-upstream origin nome-da-branch
+git commit --amend -m "Nova mensagem de commit"
 ```
 
-Após executar o último comando acima, vá no repositório sua página do Github (lembre-se, aqui você é o mantenedor) e realize uma `Pull Request` . Você mesmo fará mesclagem (`Merge`).
+### Atualizando sua branch com main antes do PR
+
+1.  Busca as últimas alterações do repositório original
+
+```{bash, echo = TRUE, eval = FALSE}
+git fetch upstream
+```
+
+2.  Reaplica seus commits sobre a versão mais atual do upstream
+
+```{bash, echo = TRUE, eval = FALSE}
+git rebase upstream/main
+```
+
+3.  Envia sua branch atualizada para seu fork
+
+```{bash, echo = TRUE, eval = FALSE}
+git push origin feature/nome-da-feature
+```
+
+### Criando e Gerenciando o Pull Request
+
+Após enviar suas alterações para seu fork, você precisa criar um Pull Request (PR) para que suas mudanças sejam incorporadas ao repositório original.
+
+1.   Vá até a página do seu fork no GitHub (lembre-se, aqui você é o proprietário) e realize uma `Pull Request` . Você mesmo fará mesclagem (`Merge`).
+
+2.   Clique no botão "New Pull Request" ou acesse a aba "Pull requests" e clique em "New pull request"
+
+3.   Ao criar o PR, inclua:
+
+    -    Título claro e descritivo
+
+    -    Descrição detalhada das alterações
+
+    -    Referência a issues relacionadas (se houver)
+
+    -    Evidências de testes (se aplicável)
+
+    -    Prints ou GIFs demonstrativos (se relevante)
+
+4.  Após criar o PR:
+
+    -    Responda a comentários dos revisores
+
+    -    Faça ajustes solicitados se necessário
+
+    -    Se precisar fazer alterações adicionais:
+
+```{bash, echo = TRUE, eval = FALSE}
+# Faça as alterações necessárias
+git add .
+git commit -m "Ajustes conforme revisão do PR"
+git push origin feature/nome-da-feature
+```
+
+-   O PR será atualizado automaticamente com os novos commits
+
+5. Aguarde a revisão e aprovação:
+
+-    Mantenha-se disponível para discutir as alterações
+
+-    Esteja aberto a sugestões e mudanças
+
+-    O mantenedor pode solicitar modificações antes do merge
+
+-    O PR pode ser aprovado por múltiplos revisores
+
+### Após o Merge do PR
+
+1.  Retorna para a branch main
+
+```{bash, echo = TRUE, eval = FALSE}
+git checkout main
+```
+
+2.  Atualiza sua main local com as mudanças do upstream
+
+```{bash, echo = TRUE, eval = FALSE}
+git pull upstream main
+```
+
+3.  Atualiza a main do seu fork
+
+```{bash, echo = TRUE, eval = FALSE}
+git push origin main
+```
+
+4.  Remove a branch de feature localmente
+
+```{bash, echo = TRUE, eval = FALSE}
+git branch -d feature/nome-da-feature
+```
+
+5.  Remove a branch de feature do seu fork remoto
+
+```{bash, echo = TRUE, eval = FALSE}
+git push origin --delete feature/nome-da-feature
+```
 
 ### **Mesclando as Branches no computador**
 
