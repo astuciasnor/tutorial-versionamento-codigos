@@ -47,3 +47,6 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Arquivo do Projeto
+tutorial-versionamento-codigos.Rproj
