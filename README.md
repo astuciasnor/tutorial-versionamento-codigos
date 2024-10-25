@@ -14,7 +14,7 @@ utilizamos as funções do pacote `usethis`, e a partir da seção
 “Trabalhando com Versionamento”, passamos a usar diretamente os comandos
 do Git.
 
-# Instruções Inicias para uso do Git/Github
+# 1. Instruções Inicias para uso do Git/Github
 
 1.  Crie uma conta gratuita no GitHub em: <https://github.com/>
 
@@ -81,7 +81,7 @@ Esse processo configura o Git e o GitHub para uso direto no RStudio,
 possibilitando versionamento eficiente e integração com o GitHub para
 controle de versão de seus projetos.
 
-# Como criar repositório
+# 2. Como criar repositório
 
 Vamos criar nosso primeiro repositório para uso pessoal e, também,
 verificar se as conexões entre o RStudio e Github via Git estão
@@ -256,7 +256,7 @@ Esses comandos ligarão seu projeto ao Git, permitindo controle de
 versão, e o subirão para o GitHub, criando um repositório remoto pareado
 com o seu projeto local.
 
-# **Clonando e Bifurcando um Repositório (Fork)**
+# **3. Clonando e Bifurcando um Repositório (Fork)**
 
 Ao colaborar com outras pessoas em projetos no GitHub, pode ser útil não
 apenas clonar um repositório, mas também bifurcá-lo (fazer um *fork*).
@@ -291,7 +291,7 @@ Neste comando, temos:
   no GitHub e configura os remotos `origin` e `upstream` de forma
   automática e integrada com o RStudio.
 
-# **Trabalhando com Versionamento no Terminal**
+# **4. Trabalhando com Versionamento no Terminal**
 
 Após ter criado uma cópia do repositório e a ele ter sido permitida
 bifucação (ões) (fork), você, enquanto mantenedor, pode querer melhorar
@@ -305,9 +305,9 @@ editáveis às pastas do projeto.
   vamos usar apenas terminal (bash) do RStudio para trabalhar de forma
   mais eficiente com o Git.
 
-## Versionando enquanto mantenedor
+## 4.1. Versionando enquanto mantenedor
 
-### **Configuração inicial do upstream**
+### **4.1.1 Configuração inicial do upstream**
 
 Se você ainda não fez a configuração inicial do upstream, será
 necessário fazê-lo.
@@ -318,7 +318,7 @@ Conecta seu repositório local com o repositório original (upstream):
 git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 ```
 
-### Atualizando sua main local
+### 4.1.2 Atualizando sua main local
 
 1.  Muda para a branch main local:
 
@@ -344,7 +344,7 @@ git merge upstream/main
 git push origin main
 ```
 
-### **Criando e mudando para nova branch**
+### **4.1.3 Criando e mudando para nova branch**
 
 Crie e mude para uma nova branch de feature. Crie uma nova branch de
 nome `login1` para realizar as alterações:
@@ -360,7 +360,7 @@ trabalhando, utilize:
 git branch
 ```
 
-### Fazendo alterações no projeto
+### 4.1.4 Fazendo alterações no projeto
 
 Nesta etapa, você fará as alterações necessárias no projeto. Lembre-se:
 
@@ -411,7 +411,7 @@ git commit -m "Descrição das alterações"
 git commit --amend -m "Nova mensagem de commit"
 ```
 
-### Atualizando sua branch com main antes do PR
+### 4.1.5 Atualizando sua branch com main antes do PR
 
 1.  Busca as últimas alterações do repositório original
 
@@ -431,7 +431,7 @@ git rebase upstream/main
 git push origin feature/nome-da-feature
 ```
 
-### Criando e Gerenciando o Pull Request
+### 4.1.6. Criando e Gerenciando o Pull Request
 
 Após enviar suas alterações para seu fork, você precisa criar um Pull
 Request (PR) para que suas mudanças sejam incorporadas ao repositório
@@ -441,22 +441,22 @@ original.
     proprietário) e realize uma `Pull Request` . Você mesmo fará
     mesclagem (`Merge`).
 
-2.  Clique no botão “New Pull Request” ou acesse a aba “Pull requests” e
-    clique em “New pull request”
+2.  Clique no botão “`New Pull Request`” ou acesse a aba “Pull requests”
+    e clique em “New pull request”
 
 3.  Ao criar o PR, inclua:
 
+    - Título claro e descritivo
+
+    - Descrição detalhada das alterações
+
+    - Referência a issues relacionadas (se houver)
+
+    - Evidências de testes (se aplicável)
+
+    - Prints ou GIFs demonstrativos (se relevante)
+
 <!-- -->
-
-    -    Título claro e descritivo
-
-    -    Descrição detalhada das alterações
-
-    -    Referência a issues relacionadas (se houver)
-
-    -    Evidências de testes (se aplicável)
-
-    -    Prints ou GIFs demonstrativos (se relevante)
 
 4.  Após criar o PR:
 
@@ -464,7 +464,8 @@ original.
 
     - Faça ajustes solicitados se necessário
 
-    - Se precisar fazer alterações adicionais:
+    - Se precisar fazer alterações adicionais, faça como abaixo. Ao
+      final, PR será atualizado automaticamente com os novos commits:
 
 ``` bash
 # Faça as alterações necessárias
@@ -473,19 +474,13 @@ git commit -m "Ajustes conforme revisão do PR"
 git push origin feature/nome-da-feature
 ```
 
-- O PR será atualizado automaticamente com os novos commits
-
 5.  Aguarde a revisão e aprovação:
+    - Mantenha-se disponível para discutir as alterações
+    - Esteja aberto a sugestões e mudanças
+    - O mantenedor pode solicitar modificações antes do merge
+    - O PR pode ser aprovado por múltiplos revisores
 
-- Mantenha-se disponível para discutir as alterações
-
-- Esteja aberto a sugestões e mudanças
-
-- O mantenedor pode solicitar modificações antes do merge
-
-- O PR pode ser aprovado por múltiplos revisores
-
-### Após o Merge do PR
+### 4.1.7 Após o Merge do PR
 
 1.  Retorna para a branch main
 
@@ -517,83 +512,61 @@ git branch -d feature/nome-da-feature
 git push origin --delete feature/nome-da-feature
 ```
 
-### **Mesclando as Branches no computador**
+## **4.2. Colaborador em Repositório com Fork**
 
-Após as modificações, é hora de mesclar a branch criada com a branch
-principal (`master`):
+Caso você não seja o mantenedor do repositório, será necessário criar um
+Pull Request (PR) para solicitar a inclusão das suas alterações na
+branch principal (geralmente chamada de `main` ou `master`). Siga os
+passos abaixo:
 
-1.  Volte para a branch `master`:
+### 4.2.1 Configuração inicial do upstream
 
-``` bash
-git checkout master
-```
-
-2.  Faça um `pull` para garantir que a branch `master` está atualizada:
+Conecte seu fork com o repositório original caso ainda não tenha feito.
 
 ``` bash
-git pull
+git remote add upstream https://github.com/dono-original/nome-repositorio.git
 ```
 
-3.  Mescle a branch criada com a `master`:
-
-``` bash
-git merge nome-da-branch
-```
-
-4.  Envie as alterações para o GitHub:
-
-``` bash
-git push
-```
-
-### **Apagando Branches**
-
-Após a mesclagem, é possível apagar a branch local e a branch remota:
-
-``` bash
-git branch -d nome-da-branch
-```
-
-``` bash
-git push origin --delete nome-da-branch
-```
-
-## **Versionando enquanto colaborador - Criando uma Pull Request**
-
-Se você não for o mantenedor do repositório, precisará criar um **Pull
-Request (PR)** para solicitar a mesclagem de suas modificações com a
-branch principal (geralmente `master` ou `main`). Siga os passos abaixo:
-
-### **Passo 1: Entrar na branch `master` e sincronizar o código local**
+### 4.2.2 Atualizando sua main
 
 Antes de iniciar o trabalho, você deve garantir que a branch `master` do
 seu repositório local esteja atualizada com a versão mais recente do
 repositório remoto.
 
-``` bash
-git checkout master
-```
-
-Faça pull para garantir que a branch master está atualizada:
+1.  Mudar para a branch main
 
 ``` bash
-git pull origin master
+git checkout main
 ```
 
-### **Passo 2:** Criar ou atualizar a branch de trabalho
-
-- **Se for uma nova branch**:
-
-Se você **ainda não criou** a branch onde fará as alterações:
+2.  Buscar atualizações do repositório original
 
 ``` bash
-git checkout -b nome-da-branch
+git fetch upstream
 ```
 
-- **Se a branch já existir**:
+3.  Integrar mudanças do upstream em sua main local
 
-Se você **já tem** a branch e ela foi criada anteriormente, faça um
-merge ou rebase.
+``` bash
+git merge upstream/main
+```
+
+4.  Atualizar seu fork no GitHub
+
+``` bash
+git push origin main
+```
+
+### 4.2.3 Criando nova branch de feature
+
+1.  Criar e mudar para nova branch de feature
+
+``` bash
+git checkout -b feature/sua-contribuicao
+```
+
+2.  Se você **já tem** a branch e ela foi criada anteriormente, e você
+    deseja usá-la, faça um merge ou rebase.
 
 ``` bash
 git checkout nome-da-branch
@@ -603,7 +576,7 @@ git checkout nome-da-branch
 git merge master
 ```
 
-Ou se preferir o rebase:
+Ou se preferir, faça um rebase:
 
 ``` bash
 git rebase master
@@ -618,90 +591,156 @@ git rebase master
   na branch do Github correspondente àquela que ainda está usando a fim
   de poder visualizar o botão de solicitação da Pull Request.
 
-### **Passo 3: Fazer alterações no projeto**
+### 4.2.4 Fazendo alterações no projeto
 
-Realize as alterações necessárias no projeto, como modificar arquivos,
-adicionar novos arquivos ou pastas. Neste ponto, crie uma linha de
-código no arquivo `request.R`. Pode ser um vetor, por exmplo.
+Nesta etapa, realize as alterações necessárias no projeto, como
+modificar arquivos, adicionar novos arquivos ou pastas. Neste ponto,
+crie uma linha de código no arquivo `request.R`. Pode ser um vetor, por
+exmplo. você fará as alterações necessárias no projeto. Lembre-se:
 
-### **Passo 4: Adicionar e comitar as alterações**
+- Você pode modificar múltiplos arquivos em diferentes pastas
+- Crie novos arquivos conforme necessário
+- Exclua arquivos que não são mais necessários
+- Mantenha as alterações focadas na feature/correção que está
+  desenvolvendo
+- Faça commits frequentes para não perder trabalho
 
-Depois de fazer as modificações, adicione os arquivos alterados ao
-controle de versão e crie um commit descrevendo o que foi alterado.
+1.  Após realizar as modificações, verifique quais arquivos foram
+    modificados
+
+``` bash
+git status
+```
+
+2.  Verifica as alterações específicas em cada arquivo:
+
+``` bash
+git diff nome-do-arquivo
+```
+
+3.  Adiciona alterações específicas ao stage:
+
+``` bash
+git add nome-do-arquivo
+```
+
+4.  Ou adiciona todas as alterações ao stage:
 
 ``` bash
 git add .
 ```
 
-Criar um commit descrevendo as mudanças:
+5.  Salva as alterações em um commit
 
 ``` bash
-git commit -m "Descrição clara e objetiva das alterações"
+git commit -m "Descrição das alterações"
 ```
 
-### **Passo 5: Enviar as alterações ao GitHub**
-
-Agora, envie suas alterações para o repositório remoto, especificamente
-para a branch em que você está trabalhando.
+6.  Caso precise modificar o último commit (antes do push)
 
 ``` bash
-git push origin nome-da-branch
+git commit --amend -m "Nova mensagem de commit"
 ```
 
-### **Passo 6: Criar um Pull Request no GitHub**
+### 4.2.5 Atualizando com upstream antes do PR
 
-1.  Acesse o seu repositório no GitHub (Pode ser preciso mudar de branch
-    para acessar o botão da Pull Request)
-2.  Clique no botão **Compare & Pull Request** que aparecerá assim que o
-    push for feito com sucesso.
-3.  Descreva as mudanças que você fez e por que elas são necessárias.
-4.  Clique em **Create Pull Request** para submeter a solicitação de
+1.  Buscar últimas alterações do upstream
+
+``` bash
+git fetch upstream
+```
+
+2.  Reaplicar seus commits sobre a versão atual do upstream
+
+``` bash
+git rebase upstream/main
+```
+
+3.  Enviar branch atualizada para seu fork
+
+``` bash
+git push origin feature/sua-contribuicao
+```
+
+### 4.2.6 Criando e Gerenciando o PR
+
+Após enviar suas alterações para seu fork, você precisa criar um Pull
+Request (PR) para que suas mudanças sejam incorporadas ao repositório
+original.
+
+1.  Vá até a página do seu fork no GitHub (Pode ser preciso mudar de
+    branch para acessar o botão da Pull Request) e realize uma
+    `Pull Request` e aguarde autorização do proprietário e, em seguida,
+    a mesclagem.
+
+2.  Ao criar o PR, inclua:
+
+    - Título claro e descritivo
+    - Descrição detalhada das alterações
+    - Referência a issues relacionadas (se houver)
+    - Evidências de testes (se aplicável)
+    - Prints ou GIFs demonstrativos (se relevante)
+
+3.  Clique em **Create Pull Request** para submeter a solicitação de
     mesclagem ao mantenedor.
 
-**Após a Mesclagem**
+<!-- -->
 
-Depois que o mantenedor aprovar e mesclar suas alterações na branch
-`master`, você deve seguir algumas etapas para limpar seu ambiente de
-desenvolvimento local.
+4.  Após criar o PR:
 
-### **Passo 7: Mudar para a branch `master`**
+    - Responda a comentários dos revisores
 
-Volte para a branch `master` para que você possa sincronizar as
-alterações feitas no repositório.
+    - Faça ajustes solicitados se necessário
 
-``` bash
-git checkout master
-```
-
-### **Passo 8: Sincronizar as atualizações**
-
-Agora, faça um pull para trazer as últimas alterações da branch
-`master`, incluindo as suas contribuições e qualquer outra alteração que
-tenha sido feita.
+    - Se precisar fazer alterações adicionais, faça como abaixo. Ao
+      final, PR será atualizado automaticamente com os novos commits:
 
 ``` bash
-git pull
+# Faça as alterações necessárias 
+git add . 
+git commit -m "Ajustes conforme revisão do PR" 
+git push origin feature/nome-da-feature
 ```
 
-### **Passo 9: Deletar a branch local**
+5.  Aguarde a revisão e aprovação:
+    - Mantenha-se disponível para discutir as alterações
+    - Esteja aberto a sugestões e mudanças
+    - O mantenedor pode solicitar modificações antes do merge
+    - O PR pode ser aprovado por múltiplos revisores
 
-Após a mesclagem, é uma boa prática deletar a branch que você usou para
-desenvolver as alterações, já que ela não será mais necessária.
+### 4.2.7 Após aprovação do PR
+
+1.  Retornar para a branch main
 
 ``` bash
-git branch -d nome-da-branch
+git checkout main
 ```
 
-### **Passo 10: Deletar a branch remota (opcional)**
-
-Se a branch não será mais utilizada por ninguém, você pode também
-deletá-la no repositório remoto (GitHub).
+2.  Atualizar sua main local com as mudanças do upstream
 
 ``` bash
-git push origin --delete nome-da-branch
+git pull upstream main
 ```
 
-### **Considerações Finais**
+3.  Atualizara main do seu fork
+
+``` bash
+git push origin main
+```
+
+4.  Remover a branch de feature localmente
+
+``` bash
+git branch -d feature/nome-da-feature
+```
+
+5.  Remover a branch de feature do seu fork remoto
+
+``` bash
+git push origin --delete feature/nome-da-feature
+```
+
+### **4.2.8 Considerações Finais**
 
 1.  **Pull Request (PR)** é o processo mais comum para sugerir mudanças
     em um projeto colaborativo no GitHub. Ao criar um PR, você solicita
@@ -715,7 +754,75 @@ git push origin --delete nome-da-branch
     organização do repositório e garantir que a branch principal se
     mantenha estável.
 
-## **Apagando a Última Modificação caso haja erro**
+# 5. Recuperando Trabalho sem Branch
+
+Se você fez alterações em arquivos, não criou branch e nem as comitou, e
+percebeu que deveria estar trabalhando em uma nova branch, não se
+preocupe. É possível criar uma nova branch e mover suas alterações para
+ela, sem perder nada. Veja como proceder:
+
+## 5.1 Salvando alterações atuais
+
+1.  Salva temporariamente suas alterações não commitadas
+
+``` bash
+git stash save "Alterações em progresso"
+```
+
+## 5.2 Atualizando main e criando branch
+
+1.  Busca atualizações do repositório original
+
+``` bash
+git fetch upstream
+```
+
+2.  Integra mudanças do upstream
+
+``` bash
+git merge upstream/main
+```
+
+3.  Cria e muda para nova branch
+
+``` bash
+git checkout -b feature/sua-feature
+```
+
+## 5.3 Recuperando alterações
+
+1.  Recuperar as alterações salvas no stash
+
+``` bash
+git stash pop
+```
+
+## 5.4 Após resolver conflitos (se houver)
+
+1.  Adiciona arquivos resolvidos ao stage
+
+``` bash
+git add .
+```
+
+2.  Cria commit com as alterações
+
+``` bash
+git commit -m "Descrição das alterações recuperadas"
+```
+
+3.  Envia branch para seu fork
+
+``` bash
+git push origin feature/sua-feature
+```
+
+## 5.5 Passe para aparte de criar PR e em diante
+
+Passa para a parte de criar PR no Github e os procedimentos seguintes,
+conforme seja Proprietário ou colaborador do repositório.
+
+## **6. Apagando a Última Modificação caso haja erro**
 
 Se ocorrer algum erro, é possível voltar ao estado anterior à
 modificação. Você pode até reverter para um estado anterior mais
@@ -724,7 +831,7 @@ pois isso pode impactar o histórico do projeto. Mesmo que isso não seja
 sempre necessário, é útil saber como proceder caso precise corrigir
 algo.
 
-### **Passo 1: Visualizar** Histórico de Commits
+### **6.1 Visualizar** Histórico de Commits
 
 Primeiro, você precisa verificar o histórico de commits e identificar o
 ponto para o qual deseja reverter o projeto. Para isso, use o comando:
@@ -737,7 +844,7 @@ Esse comando exibirá uma lista com o histórico de commits e seus
 identificadores (hashes), que são códigos alfanuméricos de 8 caracteres.
 Identifique o commit anterior ao erro que você deseja corrigir.
 
-### **Passo 2: Resetar para um Commit Anterior**
+### **6.2 Resetar para um Commit Anterior**
 
 Para voltar a um commit anterior, execute o seguinte comando,
 substituindo o identificador do commit pelo hash correspondente:
@@ -750,7 +857,7 @@ Esse comando redefine o repositório local para o estado do commit
 especificado, desfazendo qualquer alteração feita após ele. **Cuidado:**
 isso removerá qualquer mudança não comitada.
 
-### **Passo 3: Revertendo o Reset (Opcional)**
+### **6.3 Revertendo o Reset (Opcional)**
 
 Se você mudar de ideia e quiser restaurar o commit que acabou de
 resetar, pode voltar atrás executando novamente o comando `git reflog` e
@@ -760,7 +867,7 @@ usando o identificador do commit que deseja recuperar:
 git reset --hard 5a6cc0a
 ```
 
-### **Passo 4: Sincronizar com o Repositório Remoto**
+### **6.4 Sincronizar com o Repositório Remoto**
 
 Após fazer um reset local, é importante garantir que o repositório
 remoto também esteja atualizado. Se o repositório remoto tiver commits
@@ -796,13 +903,13 @@ local.
 Obs: veja a partir do minuto 23:00 do vídeo
 `Curso de Git e Github Completo 2023` para mais esclarecimentos.
 
-## Descartando Alterações Não Commitadas em um Arquivo
+## 7. Descartando Alterações em arquivos específicos
 
 Se você fez alterações em um arquivo, mas ainda não fez o commit e
 deseja descartar essas modificações, retornando o arquivo ao estado do
 último commit, siga os passos abaixo usando o Terminal do Git:
 
-### Passo 1: Verificar o Status do Repositório
+### 7.1 Verificar o Status do Repositório
 
 Antes de qualquer ação, é importante verificar o estado atual do
 repositório e ver quais arquivos foram modificados ou estão prontos para
@@ -815,7 +922,7 @@ git status
 Esse comando listará os arquivos que foram modificados e se estão ou não
 no *staging area* (prontos para serem commitados).
 
-### **Passo 2: Descartar as Alterações em um Arquivo Específico**
+### **7.2 Descartar as Alterações em um Arquivo Específico**
 
 Se você deseja descartar todas as modificações feitas em um arquivo
 específico e restaurá-lo ao estado do último commit, use o seguinte
@@ -828,7 +935,7 @@ git checkout -- nome-do-arquivo
 Esse comando descarta as alterações locais não commitadas no arquivo
 especificado, retornando-o ao estado do último commit.
 
-### **Passo 3: Remover Arquivos do Stage (Caso Estejam Preparados para Commit)**
+### **7.3 Remover Arquivos do Stage (Caso Estejam Preparados para Commit)**
 
 Se o arquivo já foi adicionado ao *staging area* (ou seja, preparado
 para commit com `git add`), mas você quer removê-lo dessa área sem
@@ -842,75 +949,9 @@ Esse comando remove o arquivo do *staging area* e desfaz o `git add`,
 mas mantém as alterações feitas no arquivo. Isso é útil quando você quer
 revisar ou modificar mais antes de commitá-lo.
 
-## Movendo Alterações Não Commitadas para uma Nova Branch
+# **8. Boas Práticas Gerais e Comandos Úteis**
 
-Se você fez alterações em arquivos, mas ainda não as comitou, e percebeu
-que deveria estar trabalhando em uma nova branch, não se preocupe. É
-possível criar uma nova branch e mover suas alterações para ela, sem
-perder nada. Veja como proceder:
-
-### **Passo 1: Verificar o Status do Repositório**
-
-Antes de qualquer ação, verifique o status do repositório para confirmar
-as modificações não commitadas e garantir que você está na branch
-correta:
-
-``` bash
-git status
-```
-
-Isso exibirá os arquivos modificados e não commitados no seu
-repositório.
-
-### **Passo 2: Criar uma Nova Branch e Mudar para Ela**
-
-Agora, crie uma nova branch e mude para ela, preservando suas
-alterações:
-
-``` bash
-git checkout -b nova-branch
-```
-
-Esse comando cria a nova branch chamada `nova-branch` e automaticamente
-muda para ela, carregando consigo todas as suas alterações não
-commitadas da branch anterior.
-
-### **Passo 3: Verificar o Status da Nova Branch**
-
-Após criar e mudar para a nova branch, verifique novamente o status para
-confirmar que as alterações ainda estão no estado de não commitadas:
-
-``` bash
-git status
-```
-
-### **Passo 4: Adicionar as Alterações ao Staging Area**
-
-Agora que você está na nova branch, adicione as alterações ao *staging
-area* para prepará-las para commit:
-
-``` bash
-git add .
-```
-
-O ponto final (`.`) indica que todas as modificações devem ser
-adicionadas ao *staging*.
-
-### **Passo 5: Realizar o Commit das Alterações**
-
-Em seguida, faça o commit das suas alterações com uma mensagem
-descritiva:
-
-``` bash
-git commit -m "Descrição das alterações"
-```
-
-### **Passos 6-10: Faça os passos seguintes conforme seja mantenedor ou colaborador**
-
-Faça os paços seguintes, como enviar (push), fazer pull request, etc,
-conforme seja colaborador ou mantenedor (veja respectivas seções acima).
-
-# **Boas Práticas Gerais**
+## 8.1. Boas práticas
 
 1.  **Commits Pequenos e Frequentes**: Realize commits de maneira
     frequente e com descrições claras. Isso facilita a revisão do código
@@ -928,28 +969,48 @@ conforme seja colaborador ou mantenedor (veja respectivas seções acima).
     branch principal. Isso melhora a qualidade do código e reduz o risco
     de bugs.
 
-# Mais informações
+5.  Use mensagens de commit claras e descritivas
 
-**Mais informações neste vídeo:**
+6.  Verifique se não incluiu arquivos temporários
 
-[Curso de Git e Github COMPLETO 2023 \[Iniciantes\] + Desafios + Muita
-Prática](https://www.youtube.com/watch?v=kB5e-gTAl_s&t=539s)
+7.  Mantenha um .gitignore atualizado
 
-[Curso gratuito Git e Github \#7 - Desfazendo
-commit](https://www.youtube.com/watch?v=CAlg29rF2VY)  
+8.  Teste suas alterações antes de cada commit
 
-**E nesta série Riffomonas (Code Club):**
+9.  Revise suas alterações antes do commit
 
-[How to set up git for a bioinformatics project: using version control
-with git and GitHub](https://www.youtube.com/watch?v=DnwEaa5QtpI)
+10. Para desfazer alterações em arquivos específicos, veja ponto acima
 
-[Integrating RStudio with a new or existing project on GitHub
-(CC120)](https://www.youtube.com/watch?v=sxErFMF7BJY&list=PLmNrK_nkqBpJtNdQBPhPWjIFRYeFOGfJ1&index=10)
+11. Para desfazer o último commit (antes do puush):
+    `git rest --soft HEAD~1`
 
-[Easy ways to go back in your git commit history with RStudio
-(CC153)](https://www.youtube.com/watch?v=Y9h-1u6uQ6c&list=PLmNrK_nkqBpJtNdQBPhPWjIFRYeFOGfJ1&index=7)
+## 8.2. Comandos úteis
 
-# Anexo de criação do arquivo Readme.rmd
+1.  Mostra estado atual do repositório
+
+``` bash
+git status
+```
+
+2.  Lista todas as branches locais
+
+``` bash
+git branch
+```
+
+3.  Mostra todos os repositórios remotos configurados
+
+``` bash
+git remote -v
+```
+
+4.  Exibe histórico de commits de forma resumida
+
+``` bash
+git log --oneline
+```
+
+# 9. Anexo de criação do arquivo Readme.rmd
 
 Recomendamos sempre criar um bom arquivo Reame para descrever bem seu
 repositório. Para criar o Readme.rmd usei a função
