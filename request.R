@@ -5,12 +5,12 @@
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 # Crie um vetor x numérico aqui -----------------------------------------------
-
+x <- -20:20
 
 
 # Crie um vetor y em função do vetor x acima ----------------------------------
-
-
+y <- x^3
+df <- data.frame(x,y)
 
 # Crie um dataframe chamado df unindo os vetores x e y ------------------------
 library(tibble)
