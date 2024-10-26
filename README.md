@@ -366,7 +366,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
     funcionalidade (ex.: `feature/login`):
 
     ``` bash
-    git checkout -b feature/nome-da-feature
+    git checkout -b nome-branch
     ```
 
 <!-- -->
@@ -460,7 +460,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 3.  Envie sua branch atualizada para seu fork
 
     ``` bash
-    git push origin feature/nome-da-feature
+    git push origin nome-branch
     ```
 
 ### 4.1.6. Criando e Gerenciando o Pull Request (PR)
@@ -487,7 +487,7 @@ original.
       ``` bash
       git add .
       git commit -m "Ajustes conforme revisão do PR"
-      git push origin feature/nome-da-feature
+      git push origin nome-branch
       ```
 
 3.  Aguarde a revisão e aprovação:
@@ -525,7 +525,7 @@ original.
 4.  Remova a branch de feature localmente
 
     ``` bash
-    git branch -d feature/nome-da-feature
+    git branch -d nome-branch
     ```
 
 <!-- -->
@@ -533,7 +533,7 @@ original.
 5.  Remova a branch de feature do seu fork remoto
 
     ``` bash
-    git push origin --delete feature/nome-da-feature
+    git push origin --delete nome-branch
     ```
 
 ------------------------------------------------------------------------
@@ -724,7 +724,7 @@ arquivos, adicionar novos arquivos ou pastas:
       # Faça as alterações necessárias 
       git add . 
       git commit -m "Ajustes conforme revisão do PR" 
-      git push origin feature/nome-da-feature
+      git push origin nome-branch
       ```
 
 ### 4.2.7 Após Aprovação do PR
@@ -756,7 +756,7 @@ arquivos, adicionar novos arquivos ou pastas:
 4.  Remova a branch de feature localmente:
 
     ``` bash
-    git branch -d feature/nome-da-feature
+    git branch -d nome-branch
     ```
 
 <!-- -->
@@ -764,7 +764,7 @@ arquivos, adicionar novos arquivos ou pastas:
 5.  Remova a branch de feature do seu fork remoto:
 
     ``` bash
-    git push origin --delete feature/nome-da-feature
+    git push origin --delete nome-branch
     ```
 
 ### 4.2.8 Considerações Finais
@@ -819,7 +819,7 @@ alterações para ela, sem perder nada. Veja como proceder:
 3.  Crie e mude para uma nova branch:
 
     ``` bash
-    git checkout -b feature/sua-feature
+    git checkout -b sua-branch
     ```
 
 ## 5.3 Recuperando Alterações
@@ -851,7 +851,7 @@ alterações para ela, sem perder nada. Veja como proceder:
 3.  Envie a branch para seu fork:
 
     ``` bash
-    git push origin feature/sua-feature
+    git push origin sua-branch
     ```
 
 ## 5.5 Criando Pull Request e Procedimentos Seguintes

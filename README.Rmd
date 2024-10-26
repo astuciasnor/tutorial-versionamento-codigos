@@ -286,7 +286,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 1.  Crie e mude para uma nova branch para trabalhar em uma nova funcionalidade (ex.: `feature/login`):
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git checkout -b feature/nome-da-feature
+    git checkout -b nome-branch
     ```
 
 <!-- -->
@@ -374,7 +374,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 3.  Envie sua branch atualizada para seu fork
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git push origin feature/nome-da-feature
+    git push origin nome-branch
     ```
 
 ### 4.1.6. Criando e Gerenciando o Pull Request (PR)
@@ -396,7 +396,7 @@ Após enviar suas alterações para seu fork, você precisa criar um Pull Reques
         ```{bash, echo = TRUE, eval = FALSE}
         git add .
         git commit -m "Ajustes conforme revisão do PR"
-        git push origin feature/nome-da-feature
+        git push origin nome-branch
         ```
 
 3.  Aguarde a revisão e aprovação:
@@ -434,7 +434,7 @@ Após enviar suas alterações para seu fork, você precisa criar um Pull Reques
 4.  Remova a branch de feature localmente
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git branch -d feature/nome-da-feature
+    git branch -d nome-branch
     ```
 
 <!-- -->
@@ -442,7 +442,7 @@ Após enviar suas alterações para seu fork, você precisa criar um Pull Reques
 5.  Remova a branch de feature do seu fork remoto
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git push origin --delete feature/nome-da-feature
+    git push origin --delete nome-branch
     ```
 
 ------------------------------------------------------------------------
@@ -618,7 +618,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
         # Faça as alterações necessárias 
         git add . 
         git commit -m "Ajustes conforme revisão do PR" 
-        git push origin feature/nome-da-feature
+        git push origin nome-branch
         ```
 
 ### 4.2.7 Após Aprovação do PR
@@ -650,7 +650,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 4.  Remova a branch de feature localmente:
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git branch -d feature/nome-da-feature
+    git branch -d nome-branch
     ```
 
 <!-- -->
@@ -658,7 +658,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 5.  Remova a branch de feature do seu fork remoto:
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git push origin --delete feature/nome-da-feature
+    git push origin --delete nome-branch
     ```
 
 ### 4.2.8 Considerações Finais
@@ -704,7 +704,7 @@ Se você fez alterações em arquivos, mas não criou uma branch e nem as comito
 3.  Crie e mude para uma nova branch:
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git checkout -b feature/sua-feature
+    git checkout -b sua-branch
     ```
 
 ## 5.3 Recuperando Alterações
@@ -736,7 +736,7 @@ Se você fez alterações em arquivos, mas não criou uma branch e nem as comito
 3.  Envie a branch para seu fork:
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git push origin feature/sua-feature
+    git push origin sua-branch
     ```
 
 ## 5.5 Criando Pull Request e Procedimentos Seguintes
