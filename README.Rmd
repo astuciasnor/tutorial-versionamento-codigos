@@ -1,7 +1,5 @@
 ---
-output: 
-  github_document:
-    toc: true
+output: github_document
 editor_options: 
   chunk_output_type: console
 ---
@@ -200,6 +198,8 @@ usethis::use_github()
 
 Esses comandos ligarão seu projeto ao Git, permitindo controle de versão, e o subirão para o GitHub, criando um repositório remoto pareado com o seu projeto local.
 
+------------------------------------------------------------------------
+
 # **3. Clonando e Bifurcando um Repositório (Fork)**
 
 Ao colaborar com outras pessoas em projetos no GitHub, pode ser útil não apenas clonar um repositório, mas também bifurcá-lo (fazer um *fork*). Isso permite que você trabalhe em uma cópia do repositório, mantendo a conexão com o original para futuras contribuições ou atualizações.
@@ -222,6 +222,8 @@ Neste comando, temos:
 -   **`destdir`** define o diretório local onde o repositório será salvo no seu computador.
 -   **`fork = TRUE`** indica que você deseja criar um *fork* do repositório original no seu próprio GitHub, permitindo que você trabalhe de forma independente no projeto.
 -   Obs: o `usethis::create_from_github()` simplifica muito o processo ao fazer tudo em um único comando: ele clona o repositório, cria o fork no GitHub e configura os remotos `origin` e `upstream` de forma automática e integrada com o RStudio.
+
+------------------------------------------------------------------------
 
 # **4. Trabalhando com Versionamento no Terminal**
 
@@ -417,35 +419,35 @@ Caso você não seja o mantenedor do repositório, será necessário criar um Pu
 
 ### 4.2.1 Configuração inicial do upstream
 
-Conecte seu fork com o repositório original caso ainda não tenha feito.
+Conecte seu fork com o repositório original, caso ainda não tenha feito:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git remote add upstream https://github.com/dono-original/nome-repositorio.git
 ```
 
-### 4.2.2 Atualizando sua main
+### 4.2.2 Atualizando a Branch Main Local
 
-Antes de iniciar o trabalho, você deve garantir que a branch `master` do seu repositório local esteja atualizada com a versão mais recente do repositório remoto.
+Antes de iniciar o trabalho, garanta que a branch `main` do seu repositório local esteja atualizada com a versão mais recente do repositório remoto.
 
-1.  Mudar para a branch main
+1.  Mude para a branch main:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git checkout main
 ```
 
-2.  Buscar atualizações do repositório original
+2.  Busque atualizações do repositório original:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git fetch upstream
 ```
 
-3.  Integrar mudanças do upstream em sua main local
+3.  Integre mudanças do upstream/main em sua main local
 
 ```{bash, echo = TRUE, eval = FALSE}
 git merge upstream/main
 ```
 
-4.  Atualizar seu fork no GitHub
+4.  Atualize seu fork no GitHub
 
 ```{bash, echo = TRUE, eval = FALSE}
 git push origin main
@@ -453,175 +455,159 @@ git push origin main
 
 ### 4.2.3 Criando nova branch de feature
 
-1.  Criar e mudar para nova branch de feature
+1.  Crie e mude para uma nova branch de feature:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git checkout -b feature/sua-contribuicao
 ```
 
-2.  Se você **já tem** a branch e ela foi criada anteriormente, e você deseja usá-la, faça um merge ou rebase.
+2.  Se já tiver a branch e ela foi criada anteriormente, faça um merge ou rebase para incorporá-la à versão atual:
+    -   Merge:
 
-```{bash, echo = TRUE, eval = FALSE}
-git checkout nome-da-branch
-```
+        ```{bash, echo = TRUE, eval = FALSE}
+        git checkout nome-da-branch
+        git merge main
+        ```
 
-```{bash, echo = TRUE, eval = FALSE}
-git merge master
-```
+    -   Reabse:
 
-Ou se preferir, faça um rebase:
+        ```{bash, echo = TRUE, eval = FALSE}
+        git checkout nome-da-branch
+        git rebase main
+        ```
 
-```{bash, echo = TRUE, eval = FALSE}
-git rebase master
-```
+> **Nota:** O `merge` cria um novo commit de mesclagem, enquanto o `rebase` reaplica seus commits sobre as mudanças da `main`. Use o método que preferir, levando em consideração o fluxo de trabalho da equipe.
 
--   **Explicação do merge e rebase:** Se você já vinha trabalhando em uma branch, é crucial incorporar as últimas alterações da `master` nela. Isso pode ser feito via `git merge master` ou `git rebase master`. O `merge` cria um novo commit de mesclagem, enquanto o `rebase` reaplica seus commits sobre as mudanças da `master`.
--   **Atenção**: no momento de fazer Pull Request nko Github, você deve ir na branch do Github correspondente àquela que ainda está usando a fim de poder visualizar o botão de solicitação da Pull Request.
+### 4.2.4 Fazendo Alterações no Projeto
 
-### 4.2.4 Fazendo alterações no projeto
+Nesta etapa, faça as alterações necessárias no projeto, como modificar arquivos, adicionar novos arquivos ou pastas:
 
-Nesta etapa, realize as alterações necessárias no projeto, como modificar arquivos, adicionar novos arquivos ou pastas. Neste ponto, crie uma linha de código no arquivo `request.R`. Pode ser um vetor, por exmplo. você fará as alterações necessárias no projeto. Lembre-se:
+-   Modifique múltiplos arquivos em diferentes pastas.
+-   Crie novos arquivos conforme necessário.
+-   Exclua arquivos que não são mais necessários.
+-   Mantenha as alterações focadas na feature/correção em que está trabalhando.
+-   Realize commits frequentes para não perder o trabalho.
 
--   Você pode modificar múltiplos arquivos em diferentes pastas
--   Crie novos arquivos conforme necessário
--   Exclua arquivos que não são mais necessários
--   Mantenha as alterações focadas na feature/correção que está desenvolvendo
--   Faça commits frequentes para não perder trabalho
-
-1.  Após realizar as modificações, verificar quais arquivos foram modificados
+1.  Verifique quais arquivos foram modificados:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git status
 ```
 
-2.  Verificar as alterações específicas em cada arquivo:
+2.  Verifique as alterações específicas em cada arquivo:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git diff nome-do-arquivo
 ```
 
-3.  Adicionar alterações específicas ao stage:
+3.  Adicione as alterações ao stage:
+    -   Específico:
 
-```{bash, echo = TRUE, eval = FALSE}
-git add nome-do-arquivo
-```
+        ```{bash, echo = TRUE, eval = FALSE}
+        git add nome-do-arquivo
+        ```
 
-4.  Ou adicionar todas as alterações ao stage:
+    -   Todos os arquivos:
 
-```{bash,echo = TRUE, eval = FALSE}
-git add .
-```
-
-5.  Salvar as alterações em um commit
+        ```{bash,echo = TRUE, eval = FALSE}
+        git add .
+        ```
+4.  Salve as alterações em um commit:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git commit -m "Descrição das alterações"
 ```
 
-6.  Caso precise modificar o último commit (antes do push)
+5.  Caso precise modificar o último commit (antes do push)
 
 ```{bash, echo = TRUE, eval = FALSE}
 git commit --amend -m "Nova mensagem de commit"
 ```
 
-### 4.2.5 Atualizando com upstream antes do PR
+### 4.2.5 Atualizando com Upstream Antes do PR
 
-1.  Buscar últimas alterações do upstream
+1.  Busque as últimas alterações do upstream:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git fetch upstream
 ```
 
-2.  Reaplicar seus commits sobre a versão atual do upstream
+2.  Reaplique seus commits sobre a versão mais atual do `upstream`:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git rebase upstream/main
 ```
 
-3.  Enviar branch atualizada para seu fork
+3.  Envie sua branch atualizada para seu fork:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git push origin feature/sua-contribuicao
 ```
 
-### 4.2.6 Criando e Gerenciando o PR
+### 4.2.6 Criando e Gerenciando o Pull Request (PR)
 
-Após enviar suas alterações para seu fork, você precisa criar um Pull Request (PR) para que suas mudanças sejam incorporadas ao repositório original.
+1.  Vá até a página do seu fork no GitHub e crie um Pull Request:
 
-1.  Vá até a página do seu fork no GitHub (Pode ser preciso mudar de branch para acessar o botão da Pull Request) e realize uma `Pull Request` e aguarde autorização do proprietário e, em seguida, a mesclagem.
+    -   Clique em "New Pull Request" ou acesse a aba "Pull requests".
 
-2.  Ao criar o PR, inclua:
+    -   Inclua um título claro, uma descrição detalhada das alterações, referência a issues relacionadas (se houver), e evidências de testes, prints ou GIFs (se aplicável).
 
-    -   Título claro e descritivo
-    -   Descrição detalhada das alterações
-    -   Referência a issues relacionadas (se houver)
-    -   Evidências de testes (se aplicável)
-    -   Prints ou GIFs demonstrativos (se relevante)
+2.  Clique em "Create Pull Request" para submeter a solicitação de mesclagem ao mantenedor.
 
-3.  Clique em **Create Pull Request** para submeter a solicitação de mesclagem ao mantenedor.
+3.  Após criar o PR:
 
-<!-- -->
+    -   Responda a comentários dos revisores.
 
-4.  Após criar o PR:
+    -   Faça ajustes solicitados, se necessário. Os novos commits serão automaticamente incluídos no PR:
 
-    -   Responda a comentários dos revisores
+        ```{bash, echo = TRUE, eval = FALSE}
+        # Faça as alterações necessárias 
+        git add . 
+        git commit -m "Ajustes conforme revisão do PR" 
+        git push origin feature/nome-da-feature
+        ```
 
-    -   Faça ajustes solicitados se necessário
+### 4.2.7 Após Aprovação do PR
 
-    -   Se precisar fazer alterações adicionais, faça como abaixo. Ao final, PR será atualizado automaticamente com os novos commits:
-
-```{bash, echo = TRUE, eval = FALSE}
-# Faça as alterações necessárias 
-git add . 
-git commit -m "Ajustes conforme revisão do PR" 
-git push origin feature/nome-da-feature
-```
-
-5.  Aguarde a revisão e aprovação:
-    -   Mantenha-se disponível para discutir as alterações
-    -   Esteja aberto a sugestões e mudanças
-    -   O mantenedor pode solicitar modificações antes do merge
-    -   O PR pode ser aprovado por múltiplos revisores
-
-### 4.2.7 Após aprovação do PR
-
-1.  Retornar para a branch main
+1.  Retorne para a branch `main`:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git checkout main
 ```
 
-2.  Atualizar sua main local com as mudanças do upstream
+2.  Atualize sua `main` local com as mudanças do `upstream`:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git pull upstream main
 ```
 
-3.  Atualizar a main do seu fork
+3.  Atualize a `main` do seu fork:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git push origin main
 ```
 
-4.  Remover a branch de feature localmente
+4.  Remova a branch de feature localmente:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git branch -d feature/nome-da-feature
 ```
 
-5.  Remover a branch de feature do seu fork remoto
+5.  Remova a branch de feature do seu fork remoto:
 
 ```{bash, echo = TRUE, eval = FALSE}
 git push origin --delete feature/nome-da-feature
 ```
 
-### **4.2.8 Considerações Finais**
+### 4.2.8 Considerações Finais
 
-1.  **Pull Request (PR)** é o processo mais comum para sugerir mudanças em um projeto colaborativo no GitHub. Ao criar um PR, você solicita que suas alterações sejam revisadas e integradas à branch principal.
+-   **Pull Request (PR)** é o processo mais comum para sugerir mudanças em um projeto colaborativo no GitHub. Ao criar um PR, você solicita que suas alterações sejam revisadas e integradas à branch principal.
 
-2.  **Comunicação**: Descreva claramente o que foi alterado no PR para facilitar a revisão. Isso ajuda o mantenedor a entender o contexto das mudanças.
+-   **Comunicação**: Descreva claramente o que foi alterado no PR para facilitar a revisão. Isso ajuda o mantenedor a entender o contexto das mudanças.
 
-3.  **Boa prática**: Sempre trabalhe em branches separadas para manter a organização do repositório e garantir que a branch principal se mantenha estável.
+-   **Boa Prática**: Sempre trabalhe em branches separadas para manter a organização do repositório e garantir que a branch principal se mantenha estável.
+
+------------------------------------------------------------------------
 
 # 5. Recuperando Trabalho sem Branch
 
