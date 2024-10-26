@@ -28,9 +28,9 @@ do Git.
 4.  Carregue o pacote `usethis` para configurar o Git para uso no
     Rstudio
 
-``` r
-library(usethis)
-```
+    ``` r
+    library(usethis)
+    ```
 
 ## **1.1 Configurando o Git/GitHub no RStudio**
 
@@ -50,22 +50,27 @@ usethis::use_git_config(user.name = "Seu Nome",
     regenerar um token de acesso pessoal (PAT). Para isso, execute o
     comando abaixo:
 
-``` r
-# Criar um token GitHub
-usethis::create_github_token()
-```
+    ``` r
+    # Criar um token GitHub
+    usethis::create_github_token()
+    ```
+
+<!-- -->
 
 2.  O comando acima abrirá o site do GitHub, onde você fará login e
     gerará o token (um código de 40 dígitos). Copie esse token, pois ele
     só apareceerá uma vez.
+
 3.  Em seguida, adicione o token ao arquivo `.Renviron`, que armazena
     variáveis de ambiente no R. Isso garante que o token fique
     disponível, mas protegido.
 
-``` r
-# Abrir o arquivo .Renviron
-usethis::edit_r_environ()
-```
+    ``` r
+    # Abrir o arquivo .Renviron
+    usethis::edit_r_environ()
+    ```
+
+<!-- -->
 
 4.  No arquivo `.Renviron`, crie uma nova linha para armazenar o token,
     conforme abaixo:
@@ -194,18 +199,21 @@ repositório. Para evitar que certos arquivos sejam versionados, você
 pode listá-los no arquivo `.gitignore`.
 
 1.  No RStudio, abra ou crie o arquivo `.gitignore` na raiz do projeto.
+
 2.  Insira os nomes dos arquivos e pastas que não devem ser versionados.
     Por exemplo:
 
-``` bash
-# Ignorar arquivos temporários do R
-*.Rhistory
-*.Rdata
+    ``` bash
+    # Ignorar arquivos temporários do R
+    *.Rhistory
+    *.Rdata
 
-# Ignorar diretórios específicos
-/data
-/output
-```
+    # Ignorar diretórios específicos
+    /data
+    /output
+    ```
+
+<!-- -->
 
 3.  Salve o arquivo e faça um commit e um push dessas alterações.
     Lembre-se de verificar se os arquivos listados no `.gitignore` estão
@@ -244,13 +252,13 @@ zero.
 2.  Em seguida, use os comandos abaixo para vinculá-lo ao Git e
     sincronizá-lo com o GitHub:
 
-``` r
-# Vincular o projeto existente ao Git
-usethis::use_git()
+    ``` r
+    # Vincular o projeto existente ao Git
+    usethis::use_git()
 
-# Enviar o projeto para o GitHub e criar o repositório remoto
-usethis::use_github()
-```
+    # Enviar o projeto para o GitHub e criar o repositório remoto
+    usethis::use_github()
+    ```
 
 Esses comandos ligarão seu projeto ao Git, permitindo controle de
 versão, e o subirão para o GitHub, criando um repositório remoto pareado
@@ -324,43 +332,51 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 
 1.  Mude para a branch `main` local:
 
-``` bash
-git checkout main
-```
+    ``` bash
+    git checkout main
+    ```
+
+<!-- -->
 
 2.  Busque todas as atualizações do repositório original
 
-``` bash
-git fetch upstream
-```
+    ``` bash
+    git fetch upstream
+    ```
+
+<!-- -->
 
 3.  Integre as mudanças do `upstream/main` em sua `main` local
 
-``` bash
-git merge upstream/main
-```
+    ``` bash
+    git merge upstream/main
+    ```
+
+<!-- -->
 
 4.  Envie as atualizações para seu fork no GitHub
 
-``` bash
-git push origin main
-```
+    ``` bash
+    git push origin main
+    ```
 
 ### **4.1.3 Criando e mudando para nova branch**
 
 1.  Crie e mude para uma nova branch para trabalhar em uma nova
     funcionalidade (ex.: `feature/login`):
 
-``` bash
-git checkout -b feature/nome-da-feature
-```
+    ``` bash
+    git checkout -b feature/nome-da-feature
+    ```
+
+<!-- -->
 
 2.  Para listar as branches locais e verificar em qual você está
     trabalhando, utilize:
 
-``` bash
-git branch
-```
+    ``` bash
+    git branch
+    ```
 
 ### 4.1.4 Fazendo alterações no projeto
 
@@ -381,15 +397,19 @@ git branch
 1.  Após realizar as modificações, verifique quais arquivos foram
     modificados
 
-``` bash
-git status
-```
+    ``` bash
+    git status
+    ```
+
+<!-- -->
 
 2.  Verifique as alterações específicas em cada arquivo:
 
-``` bash
-git diff nome-do-arquivo
-```
+    ``` bash
+    git diff nome-do-arquivo
+    ```
+
+<!-- -->
 
 3.  Adicione alterações específicas ao stage:
 
@@ -407,35 +427,41 @@ git diff nome-do-arquivo
 
 4.  Salve as alterações em um commit
 
-``` bash
-git commit -m "Descrição das alterações"
-```
+    ``` bash
+    git commit -m "Descrição das alterações"
+    ```
+
+<!-- -->
 
 5.  Caso precise modificar o último commit (antes do push)
 
-``` bash
-git commit --amend -m "Nova mensagem de commit"
-```
+    ``` bash
+    git commit --amend -m "Nova mensagem de commit"
+    ```
 
 ### 4.1.5 Atualizando sua Branch com a Main Antes do Pull Request
 
 1.  Busque as últimas alterações do repositório original
 
-``` bash
-git fetch upstream
-```
+    ``` bash
+    git fetch upstream
+    ```
+
+<!-- -->
 
 2.  Reaplique seus commits sobre a versão mais atual do upstream
 
-``` bash
-git rebase upstream/main
-```
+    ``` bash
+    git rebase upstream/main
+    ```
+
+<!-- -->
 
 3.  Envie sua branch atualizada para seu fork
 
-``` bash
-git push origin feature/nome-da-feature
-```
+    ``` bash
+    git push origin feature/nome-da-feature
+    ```
 
 ### 4.1.6. Criando e Gerenciando o Pull Request (PR)
 
@@ -474,33 +500,41 @@ original.
 
 1.  Retorne para a branch `main`
 
-``` bash
-git checkout main
-```
+    ``` bash
+    git checkout main
+    ```
+
+<!-- -->
 
 2.  Atualize sua `main` local com as mudanças do `upstream`
 
-``` bash
-git pull upstream main
-```
+    ``` bash
+    git pull upstream main
+    ```
+
+<!-- -->
 
 3.  Atualize a `main` do seu fork
 
-``` bash
-git push origin main
-```
+    ``` bash
+    git push origin main
+    ```
+
+<!-- -->
 
 4.  Remova a branch de feature localmente
 
-``` bash
-git branch -d feature/nome-da-feature
-```
+    ``` bash
+    git branch -d feature/nome-da-feature
+    ```
+
+<!-- -->
 
 5.  Remova a branch de feature do seu fork remoto
 
-``` bash
-git push origin --delete feature/nome-da-feature
-```
+    ``` bash
+    git push origin --delete feature/nome-da-feature
+    ```
 
 ------------------------------------------------------------------------
 
@@ -527,35 +561,43 @@ repositório remoto.
 
 1.  Mude para a branch main:
 
-``` bash
-git checkout main
-```
+    ``` bash
+    git checkout main
+    ```
+
+<!-- -->
 
 2.  Busque atualizações do repositório original:
 
-``` bash
-git fetch upstream
-```
+    ``` bash
+    git fetch upstream
+    ```
 
-3.  Integre mudanças do upstream/main em sua main local
+<!-- -->
 
-``` bash
-git merge upstream/main
-```
+3.  Integre mudanças do `upstream/main` em sua `main` local
+
+    ``` bash
+    git merge upstream/main
+    ```
+
+<!-- -->
 
 4.  Atualize seu fork no GitHub
 
-``` bash
-git push origin main
-```
+    ``` bash
+    git push origin main
+    ```
 
 ### 4.2.3 Criando nova branch de feature
 
 1.  Crie e mude para uma nova branch de feature:
 
-``` bash
-git checkout -b feature/sua-contribuicao
-```
+    ``` bash
+    git checkout -b feature/sua-contribuicao
+    ```
+
+<!-- -->
 
 2.  Se já tiver a branch e ela foi criada anteriormente, faça um merge
     ou rebase para incorporá-la à versão atual:
@@ -592,17 +634,22 @@ arquivos, adicionar novos arquivos ou pastas:
 
 1.  Verifique quais arquivos foram modificados:
 
-``` bash
-git status
-```
+    ``` bash
+    git status
+    ```
+
+<!-- -->
 
 2.  Verifique as alterações específicas em cada arquivo:
 
-``` bash
-git diff nome-do-arquivo
-```
+    ``` bash
+    git diff nome-do-arquivo
+    ```
+
+<!-- -->
 
 3.  Adicione as alterações ao stage:
+
     - Específico:
 
       ``` bash
@@ -614,37 +661,44 @@ git diff nome-do-arquivo
       ``` bash
       git add .
       ```
+
 4.  Salve as alterações em um commit:
 
-``` bash
-git commit -m "Descrição das alterações"
-```
+    ``` bash
+    git commit -m "Descrição das alterações"
+    ```
+
+<!-- -->
 
 5.  Caso precise modificar o último commit (antes do push)
 
-``` bash
-git commit --amend -m "Nova mensagem de commit"
-```
+    ``` bash
+    git commit --amend -m "Nova mensagem de commit"
+    ```
 
 ### 4.2.5 Atualizando com Upstream Antes do PR
 
 1.  Busque as últimas alterações do upstream:
 
-``` bash
-git fetch upstream
-```
+    ``` bash
+    git fetch upstream
+    ```
+
+<!-- -->
 
 2.  Reaplique seus commits sobre a versão mais atual do `upstream`:
 
-``` bash
-git rebase upstream/main
-```
+    ``` bash
+    git rebase upstream/main
+    ```
+
+<!-- -->
 
 3.  Envie sua branch atualizada para seu fork:
 
-``` bash
-git push origin feature/sua-contribuicao
-```
+    ``` bash
+    git push origin feature/sua-contribuicao
+    ```
 
 ### 4.2.6 Criando e Gerenciando o Pull Request (PR)
 
@@ -677,33 +731,41 @@ git push origin feature/sua-contribuicao
 
 1.  Retorne para a branch `main`:
 
-``` bash
-git checkout main
-```
+    ``` bash
+    git checkout main
+    ```
+
+<!-- -->
 
 2.  Atualize sua `main` local com as mudanças do `upstream`:
 
-``` bash
-git pull upstream main
-```
+    ``` bash
+    git pull upstream main
+    ```
+
+<!-- -->
 
 3.  Atualize a `main` do seu fork:
 
-``` bash
-git push origin main
-```
+    ``` bash
+    git push origin main
+    ```
+
+<!-- -->
 
 4.  Remova a branch de feature localmente:
 
-``` bash
-git branch -d feature/nome-da-feature
-```
+    ``` bash
+    git branch -d feature/nome-da-feature
+    ```
+
+<!-- -->
 
 5.  Remova a branch de feature do seu fork remoto:
 
-``` bash
-git push origin --delete feature/nome-da-feature
-```
+    ``` bash
+    git push origin --delete feature/nome-da-feature
+    ```
 
 ### 4.2.8 Considerações Finais
 
@@ -723,73 +785,85 @@ git push origin --delete feature/nome-da-feature
 
 # 5. Recuperando Trabalho sem Branch
 
-Se você fez alterações em arquivos, não criou branch e nem as comitou, e
-percebeu que deveria estar trabalhando em uma nova branch, não se
-preocupe. É possível criar uma nova branch e mover suas alterações para
-ela, sem perder nada. Veja como proceder:
+Se você fez alterações em arquivos, mas não criou uma branch e nem as
+comitou, e percebeu que deveria estar trabalhando em uma nova branch,
+não se preocupe. É possível criar uma nova branch e mover suas
+alterações para ela, sem perder nada. Veja como proceder:
 
-## 5.1 Salvando alterações atuais
+## 5.1 Salvando Alterações Atuais
 
-1.  Salvar temporariamente suas alterações não commitadas
+1.  Salve temporariamente suas alterações não commitadas:
 
-``` bash
-git stash save "Alterações em progresso"
-```
+    ``` bash
+    git stash save "Alterações em progresso"
+    ```
 
-## 5.2 Atualizando main e criando branch
+## 5.2 Atualizando Main e Criando Branch
 
-1.  Buscar atualizações do repositório original
+1.  Busque atualizações do repositório original:
 
-``` bash
-git fetch upstream
-```
+    ``` bash
+    git fetch upstream
+    ```
 
-2.  Integrar mudanças do upstream
+<!-- -->
 
-``` bash
-git merge upstream/main
-```
+2.  Integre as mudanças do `upstream`:
 
-3.  Criar e muda para nova branch
+    ``` bash
+    git merge upstream/main
+    ```
 
-``` bash
-git checkout -b feature/sua-feature
-```
+<!-- -->
 
-## 5.3 Recuperando alterações
+3.  Crie e mude para uma nova branch:
 
-1.  Recuperar as alterações salvas no stash
+    ``` bash
+    git checkout -b feature/sua-feature
+    ```
 
-``` bash
-git stash pop
-```
+## 5.3 Recuperando Alterações
 
-## 5.4 Após resolver conflitos (se houver)
+1.  Recupere as alterações salvas no stash:
 
-1.  Adicionar arquivos resolvidos ao stage
+    ``` bash
+    git stash pop
+    ```
 
-``` bash
-git add .
-```
+## 5.4 Após Resolver Conflitos (se houver)
 
-2.  Criar commit com as alterações
+1.  Adicione os arquivos resolvidos ao stage:
 
-``` bash
-git commit -m "Descrição das alterações recuperadas"
-```
+    ``` bash
+    git add .
+    ```
 
-3.  Enviar branch para seu fork
+<!-- -->
 
-``` bash
-git push origin feature/sua-feature
-```
+2.  Crie um commit com as alterações:
 
-## 5.5 Passe para aparte de criar PR e em diante
+    ``` bash
+    git commit -m "Descrição das alterações recuperadas"
+    ```
 
-Passa para a parte de criar PR no Github e os procedimentos seguintes,
-conforme seja Proprietário ou colaborador do repositório.
+<!-- -->
 
-## **6. Apagando a Última Modificação caso haja erro**
+3.  Envie a branch para seu fork:
+
+    ``` bash
+    git push origin feature/sua-feature
+    ```
+
+## 5.5 Criando Pull Request e Procedimentos Seguintes
+
+Após enviar suas alterações para seu fork, passe para a parte de criar
+um Pull Request no GitHub e siga os procedimentos seguintes, conforme
+descrito anteriormente para proprietários ou colaboradores do
+repositório.
+
+------------------------------------------------------------------------
+
+## 6. Apagando a Última Modificação Caso Haja Erro
 
 Se ocorrer algum erro, é possível voltar ao estado anterior à
 modificação. Você pode até reverter para um estado anterior mais
@@ -798,7 +872,7 @@ pois isso pode impactar o histórico do projeto. Mesmo que isso não seja
 sempre necessário, é útil saber como proceder caso precise corrigir
 algo.
 
-### **6.1 Visualizar** Histórico de Commits
+### 6.1 Visualizar Histórico de Commits
 
 Primeiro, você precisa verificar o histórico de commits e identificar o
 ponto para o qual deseja reverter o projeto. Para isso, use o comando:
@@ -811,7 +885,7 @@ Esse comando exibirá uma lista com o histórico de commits e seus
 identificadores (hashes), que são códigos alfanuméricos de 8 caracteres.
 Identifique o commit anterior ao erro que você deseja corrigir.
 
-### **6.2 Resetar para um Commit Anterior**
+### 6.2 Resetar para um Commit Anterior
 
 Para voltar a um commit anterior, execute o seguinte comando,
 substituindo o identificador do commit pelo hash correspondente:
@@ -821,10 +895,10 @@ git reset --hard 7d0932f
 ```
 
 Esse comando redefine o repositório local para o estado do commit
-especificado, desfazendo qualquer alteração feita após ele. **Cuidado:**
+especificado, desfazendo qualquer alteração feita após ele. **Cuidado**:
 isso removerá qualquer mudança não comitada.
 
-### **6.3 Revertendo o Reset (Opcional)**
+### 6.3 Revertendo o Reset (Opcional)
 
 Se você mudar de ideia e quiser restaurar o commit que acabou de
 resetar, pode voltar atrás executando novamente o comando `git reflog` e
@@ -834,7 +908,7 @@ usando o identificador do commit que deseja recuperar:
 git reset --hard 5a6cc0a
 ```
 
-### **6.4 Sincronizar com o Repositório Remoto**
+### 6.4 Sincronizar com o Repositório Remoto
 
 Após fazer um reset local, é importante garantir que o repositório
 remoto também esteja atualizado. Se o repositório remoto tiver commits
@@ -852,25 +926,24 @@ git push --force
 Esse comando força a sobrescrição do histórico remoto com o histórico
 local.
 
-### **Considerações Importantes:**
+### 6.5 Considerações Importantes
 
-1.  **Usar `git reset --hard` com cautela**: Esse comando remove
-    permanentemente as alterações que não foram comitadas e pode alterar
-    o histórico de commits.
+- **Usar `git reset --hard` com cautela**: Esse comando remove
+  permanentemente as alterações que não foram comitadas e pode alterar o
+  histórico de commits.
 
-2.  **Reverta apenas se necessário**: Antes de usar o `--force` para
-    sobrescrever o repositório remoto, certifique-se de que isso não
-    afetará o trabalho de outros colaboradores.
+- **Reverta apenas se necessário**: Antes de usar o `--force` para
+  sobrescrever o repositório remoto, certifique-se de que isso não
+  afetará o trabalho de outros colaboradores.
 
-3.  **Alternativa com `git revert`**: Em vez de usar `reset --hard`,
-    você pode usar `git revert` para desfazer alterações sem alterar o
-    histórico. Isso cria um novo commit que desfaz as mudanças, mantendo
-    a integridade do histórico de commits.
+- **Alternativa com `git revert`**: Em vez de usar `reset --hard`, você
+  pode usar `git revert` para desfazer alterações sem alterar o
+  histórico. Isso cria um novo commit que desfaz as mudanças, mantendo a
+  integridade do histórico de commits.
 
-Obs: veja a partir do minuto 23:00 do vídeo
-`Curso de Git e Github Completo 2023` para mais esclarecimentos.
+------------------------------------------------------------------------
 
-## 7. Descartando Alterações em arquivos específicos
+## 7. Descartando Alterações em Arquivos Específicos
 
 Se você fez alterações em um arquivo, mas ainda não fez o commit e
 deseja descartar essas modificações, retornando o arquivo ao estado do
@@ -887,9 +960,9 @@ git status
 ```
 
 Esse comando listará os arquivos que foram modificados e se estão ou não
-no *staging area* (prontos para serem commitados).
+no staging area (prontos para serem commitados).
 
-### **7.2 Descartar as Alterações em um Arquivo Específico**
+### 7.2 Descartar as Alterações em um Arquivo Específico
 
 Se você deseja descartar todas as modificações feitas em um arquivo
 específico e restaurá-lo ao estado do último commit, use o seguinte
@@ -902,90 +975,109 @@ git checkout -- nome-do-arquivo
 Esse comando descarta as alterações locais não commitadas no arquivo
 especificado, retornando-o ao estado do último commit.
 
-### **7.3 Remover Arquivos do Stage (Caso Estejam Preparados para Commit)**
+### 7.3 Remover Arquivos do Stage (Caso Estejam Preparados para Commit)
 
-Se o arquivo já foi adicionado ao *staging area* (ou seja, preparado
-para commit com `git add`), mas você quer removê-lo dessa área sem
-descartar suas alterações, use o comando abaixo:
+Se o arquivo já foi adicionado ao staging area (ou seja, preparado para
+commit com `git add`), mas você quer removê-lo dessa área sem descartar
+suas alterações, use o comando abaixo:
 
 ``` bash
 git reset HEAD nome-do-arquivo
 ```
 
-Esse comando remove o arquivo do *staging area* e desfaz o `git add`,
-mas mantém as alterações feitas no arquivo. Isso é útil quando você quer
+Esse comando remove o arquivo do staging area e desfaz o `git add`, mas
+mantém as alterações feitas no arquivo. Isso é útil quando você quer
 revisar ou modificar mais antes de commitá-lo.
 
-# **8. Boas Práticas Gerais e Comandos Úteis**
+------------------------------------------------------------------------
 
-## 8.1. Boas práticas
+# 8. Boas Práticas Gerais e Comandos Úteis
 
-1.  **Commits Pequenos e Frequentes**: Realize commits de maneira
-    frequente e com descrições claras. Isso facilita a revisão do código
-    e ajuda a identificar pontos de erro rapidamente.
+### 8.1 Boas Práticas
 
-2.  **Sincronize Regularmente**: Faça `git pull` regularmente antes de
-    começar a trabalhar para garantir que você está com a versão mais
-    recente do projeto. Isso evita conflitos e confusões.
+- **Commits Pequenos e Frequentes**: Realize commits de maneira
+  frequente e com descrições claras. Isso facilita a revisão do código e
+  ajuda a identificar pontos de erro rapidamente.
 
-3.  **Use Branches**: Sempre crie uma nova branch para implementar
-    mudanças específicas, mantendo a branch `master` ou `main` estável.
+- **Sincronize Regularmente**: Faça `git pull` regularmente antes de
+  começar a trabalhar para garantir que você está com a versão mais
+  recente do projeto. Isso evita conflitos e confusões.
 
-4.  **Revisão de Código (Pull Requests)**: Utilize Pull Requests para
-    revisar as alterações de forma colaborativa antes de mesclá-las à
-    branch principal. Isso melhora a qualidade do código e reduz o risco
-    de bugs.
+- **Use Branches**: Sempre crie uma nova branch para implementar
+  mudanças específicas, mantendo a branch `master` ou `main` estável.
 
-5.  Use mensagens de commit claras e descritivas
+- **Revisão de Código (Pull Requests)**: Utilize Pull Requests para
+  revisar as alterações de forma colaborativa antes de mesclá-las à
+  branch principal. Isso melhora a qualidade do código e reduz o risco
+  de bugs.
 
-6.  Verifique se não incluiu arquivos temporários
+- **Mensagens de Commit Claras e Descritivas**: Escreva mensagens de
+  commit que descrevam claramente as alterações feitas.
 
-7.  Mantenha um .gitignore atualizado
+- **Verifique Arquivos Temporários**: Certifique-se de não incluir
+  arquivos temporários ou irrelevantes no commit.
 
-8.  Teste suas alterações antes de cada commit
+- **Mantenha um `.gitignore` Atualizado**: Mantenha o arquivo
+  `.gitignore` atualizado para evitar que arquivos desnecessários sejam
+  incluídos no repositório.
 
-9.  Revise suas alterações antes do commit
+- **Teste Suas Alterações**: Sempre teste suas alterações antes de
+  realizar um commit.
 
-10. Para desfazer alterações em arquivos específicos, veja ponto acima
+- **Revise Suas Alterações Antes do Commit**: Faça uma revisão cuidadosa
+  das alterações antes de commitá-las.
 
-11. Para desfazer o último commit (antes do puush):
-    `git rest --soft HEAD~1`
+- **Desfazer Alterações em Arquivos Específicos**: Para desfazer
+  alterações em arquivos específicos, consulte a seção 7. Descartando
+  Alterações em Arquivos Específicos.
 
-## 8.2. Comandos úteis
+- **Desfazer o Último Commit (Antes do Push)**: Para desfazer o último
+  commit antes do push, utilize:
 
-1.  Mostrar estado atual do repositório
+  ``` bash
+  git reset --soft HEAD~1
+  ```
 
-``` bash
-git status
-```
+## 8.2 Comandos Úteis
 
-2.  Listar todas as branches locais
+- **Mostrar Estado Atual do Repositório**:
 
-``` bash
-git branch
-```
+  ``` bash
+  git status
+  ```
 
-3.  Mostrar todos os repositórios remotos configurados
+- **Listar Todas as Branches Locais**:
 
-``` bash
-git remote -v
-```
+  ``` bash
+  git branch
+  ```
 
-4.  Exibir histórico de commits de forma resumida
+- **Mostrar Todos os Repositórios Remotos Configurados**:
 
-``` bash
-git log --oneline
-```
+  ``` bash
+  git remote -v
+  ```
 
-# 9. Anexo de criação do arquivo Readme.rmd
+- **Exibir Histórico de Commits de Forma Resumida**:
 
-Recomendamos sempre criar um bom arquivo Reame para descrever bem seu
-repositório. Para criar o Readme.rmd usei a função
-`usethis::use_readme_rmd()` . O que há de tão especial sobre usar o
+  ``` bash
+  git log --oneline
+  ```
+
+------------------------------------------------------------------------
+
+# 9. Anexo de Criação do Arquivo README.Rmd
+
+Recomendamos sempre criar um bom arquivo README para descrever bem seu
+repositório. Para criar o `README.Rmd`, você pode usar a função
+`usethis::use_readme_rmd()`. Mas o que há de tão especial em usar o
 `README.Rmd` em vez de apenas o `README.md`?
 
-Resposta.: Você pode incluir tabelas e gráficos usando chunks de
-códigos, tal como este que inclui uma tabela de resumo de dados:
+### Benefícios do `README.Rmd`
+
+Com o `README.Rmd`, você pode incluir tabelas e gráficos usando chunks
+de código R, algo que não é possível diretamente no `README.md`. Veja um
+exemplo de tabela gerada com código R:
 
 ``` r
 summary(cars)
@@ -998,14 +1090,17 @@ summary(cars)
 #>  Max.   :25.0   Max.   :120.00
 ```
 
-Você ainda precisará renderizar `README.Rmd` regularmente, para manter
-`README.md` atualizado.
-
-Você também pode incorporar gráficos, por exemplo:
+Além de tabelas, você também pode incorporar gráficos. Por exemplo:
 
 ![](README_files/figure-gfm/pressure-1.png)<!-- -->
 
-Nesse caso, não se esqueça de fazer o commit e enviar (push) os arquivos
-de figura resultantes para que eles sejam exibidos no GitHub. Nesta
-etapa de versionamento, utilize uma das duas opções acima caso seja
-proprietário ou apenas colaborador.
+Esses recursos tornam o `README` mais dinâmico e informativo,
+especialmente útil quando você deseja fornecer uma visão rápida e visual
+dos dados ou do funcionamento do seu projeto.
+
+> **Nota**: Você precisará renderizar o `README.Rmd` regularmente para
+> manter o `README.md` atualizado. Não se esqueça de fazer o commit e
+> enviar (`push`) os arquivos de figuras resultantes para que eles sejam
+> exibidos corretamente no GitHub. Na etapa de versionamento, siga as
+> orientações apropriadas, seja você o proprietário ou um colaborador do
+> repositório.
