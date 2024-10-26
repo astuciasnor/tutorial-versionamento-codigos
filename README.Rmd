@@ -632,8 +632,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
             3.  **Envie as mudanças para o PR**:
 
-                ```{bash}
-                {bash, echo = TRUE, eval = FALSE}
+                ```{bash, echo = TRUE, eval = FALSE}
                 # Faça as alterações necessárias 
                 git add . 
                 git commit -m "Ajustes conforme revisão do PR" 
