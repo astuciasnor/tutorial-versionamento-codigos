@@ -610,16 +610,37 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
 3.  Após criar o PR:
 
-    -   Responda a comentários dos revisores.
+    O Proprietário pode tomar duas decisões:
 
-    -   Faça ajustes solicitados, se necessário. Os novos commits serão automaticamente incluídos no PR:
+    -   **Aprovar a Pull Request, executando o Merge (Mesclagem com a `main`)**
 
-        ```{bash, echo = TRUE, eval = FALSE}
-        # Faça as alterações necessárias 
-        git add . 
-        git commit -m "Ajustes conforme revisão do PR" 
-        git push origin nome-branch
-        ```
+    -   **Recusar a Pull request, ou solicitar modificações**. Se o proprietário precisar solicitar modificações, os procedimentos serão os seguintes:
+
+        -   **Para o Proprietário do Repositório (Solicitando Modificações)**
+
+            1.  **Revise e comente nas linhas**: No PR, clique nas linhas de código que precisam de ajustes, adicione comentários específicos e clique em **Start Review** para iniciar a revisão.
+
+            2.  **Solicite alterações**: Ao finalizar, clique em **Request Changes**. Isso sinaliza ao colaborador que há ajustes a serem feitos antes da aprovação. **REVISAR ESSE TEXTO**
+
+            3.  **Seja acessível para dúvidas**: Informe que o colaborador pode comentar no PR caso precise de esclarecimentos.
+
+        -   Para o Colaborador (Fazendo as Modificações Solicitadas)
+
+            1.  **Leia os comentários**: Revise os comentários e entenda o que precisa de ajustes.
+
+            2.  **Altere o código**: Faça as modificações no seu repositório local.
+
+            3.  **Envie as mudanças para o PR**:
+
+                ```{bash}
+                {bash, echo = TRUE, eval = FALSE}
+                # Faça as alterações necessárias 
+                git add . 
+                git commit -m "Ajustes conforme revisão do PR" 
+                git push origin nome-branch
+                ```
+
+            4.  **Comente e finalize**: Se precisar de mais informações, use os comentários no PR para discutir e esclarecer pontos.
 
 ### 4.2.7 Após Aprovação do PR
 
