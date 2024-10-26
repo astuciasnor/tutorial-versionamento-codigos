@@ -44,7 +44,7 @@ usethis::use_git_config(user.name = "Seu Nome",
                         user.email = "seu.email@exemplo.com")
 ```
 
-## 1.2 Criando e Configurando um Token de Acesso Pessoal (PAT) no RStudio
+## 1.2 Criando e configurando um Token de Acesso Pessoal (PAT) no RStudio
 
 1.  Para autenticar o GitHub no RStudio, você precisará criar ou
     regenerar um token de acesso pessoal (PAT). Para isso, execute o
@@ -114,8 +114,8 @@ corretamente definidas desde o início.
 
 Depois de criar o repositório no GitHub, o próximo passo é clonar o
 repositório para sua máquina local, criando uma cópia que você poderá
-modificar diretamente no RStudio. Esta etapa verifica se a comunicação
-via Git está funcionando.
+modificar diretamente no RStudio. Além diso, esta etapa verifica se a
+comunicação via Git está funcionando.
 
 1.  No GitHub, acesse a página do repositório recém-criado e clique no
     botão verde **“Code”**. Em seguida, copie a URL fornecida para
@@ -136,8 +136,8 @@ via Git está funcionando.
 3.  Após esses passos, o RStudio criará uma cópia completa do seu
     repositório localmente, já vinculada ao Git e ao GitHub. Isso
     significa que você poderá gerenciar o versionamento do projeto
-    diretamente, enviando e recebendo alterações entre o repositório
-    local e o GitHub.
+    diretamente do terminal do RStudio, enviando e recebendo alterações
+    entre o repositório local e o GitHub.
 
 ### **2.1.2 Implementando alterações em seu projeto**
 
@@ -155,10 +155,10 @@ repositório.
 2.  **Comitando as alterações:**
 
     - Após criar a pasta e o arquivo, vá até a aba **Git** no RStudio e
-      clique no botão **Commit**.
+      clique no botão **`Commit`**.
     - Selecione os arquivos que deseja versionar, adicione uma mensagem
       explicando a alteração (ex.: “Criação de pasta e arquivo de
-      teste”) e clique em **Commit**.
+      teste”) e clique em **`Commit`**`.`
 
 3.  **Realizando o Push:**
 
@@ -170,7 +170,7 @@ repositório.
     - Acesse seu repositório no GitHub e verifique se as mudanças (a
       nova pasta e arquivo) foram sincronizadas corretamente.
 
-### **2.1.3 Alterando via GitHub o arquivo `README.md` e Realizando Pull**
+### **2.1.3 Alterando via GitHub o arquivo `README.md` e Realizando Pull no RStudio**
 
 1.  Acesse a página do seu repositório no GitHub.
 
@@ -312,7 +312,8 @@ editáveis às pastas do projeto.
 Se você ainda não fez a configuração inicial do upstream, será
 necessário fazê-lo.
 
-Conecta seu repositório local com o repositório original (upstream):
+1.  Conectar seu repositório local com o repositório original
+    (upstream):
 
 ``` bash
 git remote add upstream https://github.com/usuario-original/nome-repositorio.git
