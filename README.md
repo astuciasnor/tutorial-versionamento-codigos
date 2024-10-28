@@ -406,7 +406,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 2.  Verifique as alterações específicas em cada arquivo:
 
     ``` bash
-    git diff nome-do-arquivo
+    git diff nome-darquivo
     ```
 
 <!-- -->
@@ -416,7 +416,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
     - Específico:
 
       ``` bash
-      git add nome-do-arquivo
+      git add nome-arquivo
       ```
 
     - Todos os arquivos:
@@ -594,7 +594,7 @@ repositório remoto.
 1.  Crie e mude para uma nova branch de feature:
 
     ``` bash
-    git checkout -b feature/sua-contribuicao
+    git checkout -b nome-branch
     ```
 
 <!-- -->
@@ -604,14 +604,14 @@ repositório remoto.
     - Merge:
 
       ``` bash
-      git checkout nome-da-branch
+      git checkout nome-branch
       git merge main
       ```
 
     - Reabse:
 
       ``` bash
-      git checkout nome-da-branch
+      git checkout nome-branch
       git rebase main
       ```
 
@@ -643,7 +643,7 @@ arquivos, adicionar novos arquivos ou pastas:
 2.  Verifique as alterações específicas em cada arquivo:
 
     ``` bash
-    git diff nome-do-arquivo
+    git diff nome-arquivo
     ```
 
 <!-- -->
@@ -653,7 +653,7 @@ arquivos, adicionar novos arquivos ou pastas:
     - Específico:
 
       ``` bash
-      git add nome-do-arquivo
+      git add nome-arquivo
       ```
 
     - Todos os arquivos:
@@ -697,7 +697,7 @@ arquivos, adicionar novos arquivos ou pastas:
 3.  Envie sua branch atualizada para seu fork:
 
     ``` bash
-    git push origin feature/sua-contribuicao
+    git push origin nome-branch
     ```
 
 ### 4.2.6 Criando e Gerenciando o Pull Request (PR)
@@ -766,11 +766,11 @@ arquivos, adicionar novos arquivos ou pastas:
         4.  **Comente e finalize**: Se precisar de mais informações, use
             os comentários no PR para discutir e esclarecer pontos.
 
-        5.  O Proprietário do repositório verifica as correções e clique
-            na nova commit desse Pull Request, confere as mudanças e
-            depois termina revisão selecionando **`Approve request`**.
-            Depois termina a PR cliquem em **`Merge Pull Request`**.
-            CHECAR ESSA PARTE FINAL.
+    O Proprietário do repositório verifica as correções clicando na nova
+    commit desse Pull Request; então, confere as mudanças e depois
+    termina a revisão (NOME AQUI) e selecionando **`Approve request`**.
+    Depois termina a PR cliquem em **`Merge Pull Request`**. CHECAR ESSA
+    PARTE FINAL.
 
 ### 4.2.7 Após Aprovação do PR
 
