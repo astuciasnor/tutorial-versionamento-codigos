@@ -5,11 +5,11 @@
 #xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 # Crie um vetor x numérico aqui -----------------------------------------------
-x <- -20:20
+x <- -10:10
 
 
 # Crie um vetor y em função do vetor x acima ----------------------------------
-y <- x^3
+y <- x^2
 df <- data.frame(x,y)
 
 # Crie um dataframe chamado df unindo os vetores x e y ------------------------
