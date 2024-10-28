@@ -727,14 +727,21 @@ arquivos, adicionar novos arquivos ou pastas:
       - **Para o Proprietário do Repositório (Solicitando
         Modificações)**
 
-        1.  **Revise e comente nas linhas**: No PR, clique nas linhas de
-            código que precisam de ajustes, adicione comentários
-            específicos e clique em **Start Review** para iniciar a
-            revisão.
+        1.  **Revise e comente nas linhas**: Depois que acessar a PR,
+            clique no nome do commit e o arquivo modificado será aberto.
+            Observe a linha a mudar e clique no sinal de mais `+` azul.
+            Escreva um comentário explicando o que precisa ser alterado
+            no código e clique no botão **Start Review** para iniciar a
+            revisão. Aparece como `Pending`.
 
-        2.  **Solicite alterações**: Ao finalizar, clique em **Request
-            Changes**. Isso sinaliza ao colaborador que há ajustes a
-            serem feitos antes da aprovação. **REVISAR ESSE TEXTO**
+        2.  **Solicite alterações**: Ao finalizar, clique em
+            **`Finish your review`**. Deixe um comentário explicativo,
+            marque a opção **`Request changes`** e clique em
+            **`Submit review`**. Isso sinaliza ao colaborador que há
+            ajustes a serem feitos antes da aprovação, aparecendo na
+            sequência da Pull Request um botão de aviso chamado
+            `Changes requested`. Você aguarda o colaborardor fazer as
+            mudanças.
 
         3.  **Seja acessível para dúvidas**: Informe que o colaborador
             pode comentar no PR caso precise de esclarecimentos.
@@ -758,6 +765,12 @@ arquivos, adicionar novos arquivos ou pastas:
 
         4.  **Comente e finalize**: Se precisar de mais informações, use
             os comentários no PR para discutir e esclarecer pontos.
+
+        5.  O Proprietário do repositório verifica as correções e clique
+            na nova commit desse Pull Request, confere as mudanças e
+            depois termina revisão selecionando **`Approve request`**.
+            Depois termina a PR cliquem em **`Merge Pull Request`**.
+            CHECAR ESSA PARTE FINAL.
 
 ### 4.2.7 Após Aprovação do PR
 
