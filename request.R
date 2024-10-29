@@ -9,12 +9,12 @@ x <- -10:10
 
 
 # Crie um vetor y em função do vetor x acima ----------------------------------
-y <- x^4
-df <- data.frame(x,y)
+y <- x^2
+
 
 # Crie um dataframe chamado df unindo os vetores x e y ------------------------
 library(tibble)
-
+df <- tibble(x,y)
 
 
 # Crie um grafico de pontos com o dataframe df o ggplot -----------------------
