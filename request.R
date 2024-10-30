@@ -21,7 +21,7 @@ df <- tibble(x,y)
 library(ggplot2)
 df |> 
   ggplot(aes(x, y)) +
-  geom_line(col = "blue", linewidth = 2)
+  geom_point(col = "red", size = 3)
 
 
 # Adicione ao gráfico ma curva de tendência suavizada(geom_smooth) -------------
