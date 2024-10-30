@@ -705,24 +705,25 @@ arquivos, adicionar novos arquivos ou pastas:
 1.  Vá até a página do seu fork no GitHub e crie um Pull Request:
 
     - Clique em “New Pull Request” ou acesse a aba “Pull requests”.
-
     - Inclua um título claro, uma descrição detalhada das alterações,
       referência a issues relacionadas (se houver), e evidências de
       testes, prints ou GIFs (se aplicável).
 
-2.  Clique em “Create Pull Request” para submeter a solicitação de
+2.  Clique em “`Create Pull Request`” para submeter a solicitação de
     mesclagem ao mantenedor do repo.
 
 3.  Após criar o PR:
 
-    O **proprietário** pode tomar duas decisões:
+    O **proprietário** pode tomar três decisões:
 
-    - **Aprovar a Pull Request, executando o Merge (Mesclagem com a
+    - **Aprovar a `Pull Request`, executando o Merge (Mesclagem com a
       `main`)**
 
-    - **Recusar a Pull request, ou solicitar modificações**. Se o
-      proprietário precisar solicitar modificações, alguns procedimentos
-      específicos deverão ser tomados, conforme se segue:
+    - **Recusar a Pull request e** explicar porque recusou a modificação
+
+    - **Ou solicitar modificações**. Se o proprietário precisar
+      solicitar modificações, alguns procedimentos específicos deverão
+      ser tomados, conforme se segue:
 
       - **Para o Proprietário do Repositório que solicitas as alterações
         de código:**
@@ -735,16 +736,18 @@ arquivos, adicionar novos arquivos ou pastas:
             iniciar a revisão e fará com que a PR fique pendente
             (pending).
 
-        2.  **Solicite alterações**: Paraa finalizar a solicitação de
+        2.  **Solicite alterações**: Para finalizar a solicitação de
             alterações, clique na seta ao lado do botão
             **`Finish your review`**. Uma nova janela se abre e deixe um
             comentário explicativo, marque a opção **`Request changes`**
             e clique em **`Submit review`**. Isso sinalizará ao
             colaborador que há ajustes a serem feitos antes da aprovação
-            por mensagem de e-mail, aparecendo também na sequência da
-            Pull Request um botão de aviso chamado `Changes requested`.
-            **Seja acessível para dúvidas**: Informe que o colaborador
-            pode comentar no PR caso precise de esclarecimentos.
+            (mensagem de e-mail será enviadada com o comeentário da
+            modificação a ser revisada), aparecendo também na sequência
+            da Pull Request um botão de aviso chamado
+            `Changes requested` de cor laranja. **Seja acessível para
+            dúvidas**: Informe que o colaborador pode comentar no PR
+            caso precise de esclarecimentos.
 
       - Para o **Colaborador que faz as modificações solicitadas:**
 
@@ -752,13 +755,14 @@ arquivos, adicionar novos arquivos ou pastas:
             que precisa de ajustes nos códigos. Neste ponto, o
             colaborador não precisa mudar nada na Pull Request.
 
-        2.  **Altere o código**: Faça as modificações no seu repositório
-            local e realize todos os testes para ver se a funcionalidade
-            foi alcançada ou o código foi corrigido.
+        2.  **Altere o código**: Faça as modificações na mesma branch
+            criada antes em seu repositório local e realize todos os
+            testes para ver se a funcionalidade foi alcançada ou o
+            código foi corrigido. Salve os arquivos.
 
-        3.  **Envie as mudanças para o PR**: Utilize os códigos abaixo.
-            Observe que será necessário outra commit para salvar as
-            novas modificações.
+        3.  **Envie as mudanças para o PR**: Utilize os códigos abaixo
+            para enviar as mudanças. Observe que será necessário outra
+            commit para salvar as novas modificações.
 
             ``` bash
             # Faça as alterações necessárias 
@@ -772,14 +776,14 @@ arquivos, adicionar novos arquivos ou pastas:
             que você achou pertinente durante as alterações do código.
 
     \- Por fim, o Proprietário do repositório verifica as correções
-    clicando na nova commit desse Pull Request; então, confere as
-    mudanças e depois termina a revisão cliclandona seta ao lado do
-    botão **Finish Your Review**, adicionando um comentário na janela
-    que se abre, indicando se as modificações foram bem-sucedidas.
-    Depois, seleciona a opção **Approve request** e clica em **Submit
-    Review** para concluir. A janela do Pull Request se abrirá
-    novamente, permitindo que o proprietário finalize o processo de
-    mesclagem clicando em **Merge Pull Request**.
+    clicando na nova commit desse Pull Request no Github; então, confere
+    as mudanças e depois termina a revisão cliclando m **Review
+    changes**, adicionando um comentário na janela que se abre,
+    indicando se as modificações foram bem-sucedidas. Depois, seleciona
+    a opção **Approve** e clica em **Submit Review** para concluir. A
+    janela do Pull Request se abrirá novamente, permitindo que o
+    proprietário finalize o processo de mesclagem clicando em **Merge
+    Pull Request**.
 
 ### 4.2.7 Após Aprovação do PR
 
