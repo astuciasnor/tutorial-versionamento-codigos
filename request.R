@@ -19,7 +19,9 @@ df <- tibble(x,y)
 
 # Crie um grafico de pontos com o dataframe df o ggplot -----------------------
 library(ggplot2)
-
+df |> 
+  ggplot(aes(x, y)) +
+  geom_line(col = "blue", linewidth = 2)
 
 
 # Adicione ao gráfico ma curva de tendência suavizada(geom_smooth) -------------
