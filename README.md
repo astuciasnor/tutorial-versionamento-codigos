@@ -320,13 +320,9 @@ editáveis às pastas do projeto
 
 ### **4.1.1 Configuração inicial do upstream**
 
-Se você ainda não fez a configuração inicial do upstream, será
-necessário fazê-la para conectar seu repositório local ao repositório
-original (upstream):
-
-``` bash
-git remote add upstream https://github.com/usuario-original/nome-repositorio.git
-```
+Enquanto mantenedor do repositório, você não precisa fazer configuração
+inicial de upstream com o comando `git remote add upstream url-repo` .
+Isso será necessário quando você for um colaborador do projeto em fork.
 
 ### 4.1.2 Atualizando sua main local
 
@@ -338,27 +334,38 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 
 <!-- -->
 
-2.  Busque todas as atualizações do repositório original
+2.  Use os comandos `git fetch origin` ou `git pull origin main` para
+    obter as últimas alterações do repositório remoto (`origin`) que
+    está no GitHub. Porém, as duas funcionam de forma diferente.
+
+    1)  O comando `git fetch origin` busca as atualizações do
+        repositório remoto, mas não as aplica automaticamente ao seu
+        branch local. É útil se você deseja revisar as mudanças antes de
+        aplicá-las. Depois teria que fazer `git merge origin/main` .
+        Caso você deseje usar esse procedimento de revisar e mesclar,
+        segue abaixo a sequência completa de comandos:
 
     ``` bash
-    git fetch upstream
+    git fetch origin           # Busca as atualizações do repositório remoto sem aplicá-las
+
+    git diff main origin/main  # Mostra as diferenças entre sua branch local e a versão no remoto
+    git merge origin/main      # Mescla as atualizações do remoto na sua branch local
+    git log --oneline          # Visualiza o histórico de commits para confirmar as mudanças
     ```
 
-<!-- -->
-
-3.  Integre as mudanças do `upstream/main` em sua `main` local
+    2)  Já o comando **mais usado** é o `git pull origin main`, o qual
+        busca as atualizações e já as mescla com a sua branch local.
+        Aqui, `main` é o nome da branch principal. Caso você utilize
+        outro branch principal (como `master`), substitua `main` por
+        `master`.
 
     ``` bash
-    git merge upstream/main
+    git pull origin main 
     ```
 
-<!-- -->
-
-4.  Envie as atualizações para seu fork no GitHub
-
-    ``` bash
-    git push origin main
-    ```
+    Esta opção é a **preferida** e mais usada, principalmente quando
+    você já sabe que os códigos são provenientes de **fontes
+    confiávies.**
 
 ### **4.1.3 Criando e mudando para nova branch**
 
@@ -444,7 +451,7 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 1.  Busque as últimas alterações do repositório original
 
     ``` bash
-    git fetch upstream
+    git fetch origin
     ```
 
 <!-- -->
@@ -452,12 +459,12 @@ git remote add upstream https://github.com/usuario-original/nome-repositorio.git
 2.  Reaplique seus commits sobre a versão mais atual do upstream
 
     ``` bash
-    git rebase upstream/main
+    git rebase origin/main
     ```
 
 <!-- -->
 
-3.  Envie sua branch atualizada para seu fork
+3.  Envie sua branch atualizada para seu repo
 
     ``` bash
     git push origin nome-branch
@@ -471,7 +478,8 @@ original.
 
 1.  Acesse a página do seu fork no GitHub e crie um Pull Request:
 
-    - Clique em “New Pull Request” ou acesse a aba “Pull requests”.
+    - Clique no botão `Compare & Create Pull request` e depois em
+      `Crea pull request`.
 
     - Inclua um título claro, uma descrição detalhada das alterações,
       referência a issues relacionadas (se houver), e evidências de
@@ -479,10 +487,12 @@ original.
 
 2.  Após criar o PR:
 
-    - Responda a comentários dos revisores.
+    - Responda a comentários de outros mantenedores do projeto, se
+      houver.
 
-    - Se precisar fazer ajustes, faça as alterações e os novos commits
-      serão automaticamente incluídos no PR:
+    - Se precisar fazer ajustes, faça as alterações (sem precisar criar
+      nova branch) e os novos commits serão automaticamente incluídos no
+      PR:
 
       ``` bash
       git add .
@@ -494,9 +504,13 @@ original.
 
     - Esteja disponível para discutir as alterações.
 
-    - O mantenedor pode solicitar modificações antes do merge.
+    - O(s) mantenedor(es) pode(m) solicitar modificações antes do merge.
 
 ### 4.1.7 Após o Merge do PR
+
+Após o aviso de aprovação das alterações e realização do merge, você
+deve atualizar as alterações na sua main do computador e apagar a branch
+criada, se necessário.
 
 1.  Retorne para a branch `main`
 
@@ -506,23 +520,13 @@ original.
 
 <!-- -->
 
-2.  Atualize sua `main` local com as mudanças do `upstream`
+2.  Atualize sua `main` local com as mudanças do remoto `origin`
 
     ``` bash
-    git pull upstream main
+    git pull origin main
     ```
 
-<!-- -->
-
-3.  Atualize a `main` do seu fork
-
-    ``` bash
-    git push origin main
-    ```
-
-<!-- -->
-
-4.  Remova a branch de feature localmente
+3.  Remova a branch de feature localmente
 
     ``` bash
     git branch -d nome-branch
@@ -530,7 +534,7 @@ original.
 
 <!-- -->
 
-5.  Remova a branch de feature do seu fork remoto
+5.  Remova a branch de feature do seu repositório remoto
 
     ``` bash
     git push origin --delete nome-branch
