@@ -257,7 +257,7 @@ Enquanto mantenedor do repositório, você não precisa fazer configuração ini
 
 2.  Use os comandos `git fetch origin` ou `git pull origin main` para obter as últimas alterações do repositório remoto (`origin`) que está no GitHub. Porém, as duas funcionam de forma diferente.
 
-    a) O comando `git fetch origin` busca as atualizações do repositório remoto, mas não as aplica automaticamente ao seu branch local. É útil se você deseja revisar as mudanças antes de aplicá-las. Depois teria que fazer `git merge origin/main` . Caso você deseje usar esse procedimento de revisar e mesclar, segue abaixo a sequência completa de comandos:
+    a)  O comando `git fetch origin` busca as atualizações do repositório remoto, mas não as aplica automaticamente ao seu branch local. É útil se você deseja revisar as mudanças antes de aplicá-las. Depois teria que fazer `git merge origin/main` . Caso você deseje usar esse procedimento de revisar e mesclar, segue abaixo a sequência completa de comandos:
 
     ```{bash, echo = TRUE, eval = FALSE}
     git fetch origin           # Busca as atualizações do repositório remoto sem aplicá-las
@@ -267,7 +267,7 @@ Enquanto mantenedor do repositório, você não precisa fazer configuração ini
     git log --oneline          # Visualiza o histórico de commits para confirmar as mudanças
     ```
 
-    b) Já o comando **mais usado** é o `git pull origin main`, o qual busca as atualizações e já as mescla com a sua branch local. Aqui, `main` é o nome da branch principal. Caso você utilize outro branch principal (como `master`), substitua `main` por `master`.
+    b)  Já o comando **mais usado** é o `git pull origin main`, o qual busca as atualizações e já as mescla com a sua branch local. Aqui, `main` é o nome da branch principal. Caso você utilize outro branch principal (como `master`), substitua `main` por `master`.
 
     ```{bash, echo = TRUE, eval = FALSE}
     git pull origin main 
@@ -435,11 +435,11 @@ Após o aviso de aprovação das alterações e realização do merge, você dev
 
 ## **4.2. Colaborador em Repositório com Fork**
 
-Caso você não seja o mantenedor do repositório, será necessário criar um Pull Request (PR) para solicitar a inclusão das suas alterações na branch principal (geralmente chamada de `main` ou `master`). Siga os passos abaixo:
+Caso você não seja o mantenedor do repositório, será necessário criar um `Pull Request` (PR) para solicitar a inclusão das suas alterações na branch principal (geralmente chamada de `main` ou `master`). Siga os passos abaixo para colaborar corretamente num projeto utilizando os comando do Git:
 
 ### 4.2.1 Configuração inicial do upstream
 
-Conecte seu fork com o repositório original, caso ainda não tenha feito:
+Se você ainda não fez a configuração inicial do upstream do respositório clonado em seu computador (reveja subtópico [3. Clonando e Bifurcando um Repositório (Fork)](#clonando-e-bifurcando-um-repositório-fork)), será necessário fazê-lo para conectar seu repositório local ao repositório original (upstream), conforme abaixo. Entretanto, se você usou o comando do pacote `usethis` para clonar em fork (Seção 3 acima), toda a configuração já é realizada, inclusive com a conexão remota `upstream`, não sendo necessário usar o comando abaixo.
 
 ```{bash, echo = TRUE, eval = FALSE}
 git remote add upstream https://github.com/dono-original/nome-repositorio.git
@@ -489,7 +489,7 @@ Antes de iniciar o trabalho, garanta que a branch `main` do seu repositório loc
 
 <!-- -->
 
-2.  Se já tiver a branch e ela foi criada anteriormente, faça um merge ou rebase para incorporá-la à versão atual:
+2.  **Se já tiver a branch** e ela foi criada anteriormente, faça um merge ou rebase para incorporá-la à versão atual:
     -   Merge:
 
         ```{bash, echo = TRUE, eval = FALSE}
@@ -513,10 +513,10 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 -   Modifique múltiplos arquivos em diferentes pastas.
 -   Crie novos arquivos conforme necessário.
 -   Exclua arquivos que não são mais necessários.
--   Mantenha as alterações focadas na feature/correção em que está trabalhando.
+-   Mantenha as alterações focadas na funcionalidade/correção em que está trabalhando.
 -   Realize commits frequentes para não perder o trabalho.
 
-1.  Verifique quais arquivos foram modificados:
+1.  Após realizar todas as modificações necessárias, verifique quais arquivos foram modificados:
 
     ```{bash, echo = TRUE, eval = FALSE}
     git status
@@ -532,7 +532,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
 <!-- -->
 
-3.  Adicione as alterações ao stage:
+3.  Adicione as alterações à área de preparação (stage):
 
     -   Específico:
 
@@ -586,9 +586,9 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
 ### 4.2.6 Criando e Gerenciando Pull Request (PR)
 
-1.  Vá até a página do seu fork no GitHub e crie um Pull Request:
+1.  Após ter feito o envio das atualizações, vá até a página do seu fork no GitHub e crie um Pull Request:
 
-    -   Clique em "New Pull Request" ou acesse a aba "Pull requests".
+    -   Clique em "New Pull Request" ou acesse a aba "Pull requests". XXXXXXXXXXXXXXXXXXXXXXXXXX
     -   Inclua um título claro, uma descrição detalhada das alterações, referência a issues relacionadas (se houver), e evidências de testes, prints ou GIFs (se aplicável).
 
 2.  Clique em "`Create Pull Request`" para submeter a solicitação de mesclagem ao mantenedor do repo.
@@ -626,9 +626,11 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
             4.  **Comente e finalize**: Se precisar de dar mais informações, use os comentários no PR para discutir e esclarecer pontos que você achou pertinente durante as alterações do código.
 
-    | - Por fim, o Proprietário do repositório verifica as correções clicando na nova commit desse Pull Request no Github; então, confere as mudanças e depois termina a revisão cliclando m **Review changes**, adicionando um comentário na janela que se abre, indicando se as modificações foram bem-sucedidas. Depois, seleciona a opção **Approve** e clica em **Submit Review** para concluir. A janela do Pull Request se abrirá novamente, permitindo que o proprietário finalize o processo de mesclagem clicando em **Merge Pull Request**.
+    | Por fim, o proprietário do repositório verifica as correções clicando na nova commit desse Pull Request no Github; então, confere as mudanças e depois termina a revisão cliclando m **Review changes**, adicionando um comentário na janela que se abre, indicando se as modificações foram bem-sucedidas. Depois, seleciona a opção **Approve** e clica em **Submit Review** para concluir. A janela do Pull Request se abrirá novamente, permitindo que o proprietário finalize o processo de mesclagem clicando em **Merge Pull Request**.
 
 ### 4.2.7 Após Aprovação do PR
+
+Depois que seu Pull Request (PR) for **revisado e aprovado pelos mantenedores do projeto**, é importante realizar algumas etapas de limpeza e organização no seu repositório local e remoto. Isso mantém seu ambiente de trabalho organizado e sincronizado com o projeto principal. Siga os comandos abaixo para atualizar suas branches e remover as que não são mais necessárias
 
 1.  Retorne para a branch `main`:
 
@@ -654,7 +656,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
 <!-- -->
 
-4.  Remova a branch de feature localmente:
+4.  Remova a branch de funcionalidade localmente:
 
     ```{bash, echo = TRUE, eval = FALSE}
     git branch -d nome-branch
@@ -662,7 +664,7 @@ Nesta etapa, faça as alterações necessárias no projeto, como modificar arqui
 
 <!-- -->
 
-5.  Remova a branch de feature do seu fork remoto:
+5.  Remova a branch de funcionalidade do seu fork remoto:
 
     ```{bash, echo = TRUE, eval = FALSE}
     git push origin --delete nome-branch

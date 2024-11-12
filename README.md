@@ -545,13 +545,21 @@ criada, se necessário.
 ## **4.2. Colaborador em Repositório com Fork**
 
 Caso você não seja o mantenedor do repositório, será necessário criar um
-Pull Request (PR) para solicitar a inclusão das suas alterações na
+`Pull Request` (PR) para solicitar a inclusão das suas alterações na
 branch principal (geralmente chamada de `main` ou `master`). Siga os
-passos abaixo:
+passos abaixo para colaborar corretamente num projeto utilizando os
+comando do Git:
 
 ### 4.2.1 Configuração inicial do upstream
 
-Conecte seu fork com o repositório original, caso ainda não tenha feito:
+Se você ainda não fez a configuração inicial do upstream do respositório
+clonado em seu computador (reveja subtópico [3. Clonando e Bifurcando um
+Repositório (Fork)](#clonando-e-bifurcando-um-repositório-fork)), será
+necessário fazê-lo para conectar seu repositório local ao repositório
+original (upstream), conforme abaixo. Entretanto, se você usou o comando
+do pacote `usethis` para clonar em fork (Seção 3 acima), toda a
+configuração já é realizada, inclusive com a conexão remota `upstream`,
+não sendo necessário usar o comando abaixo.
 
 ``` bash
 git remote add upstream https://github.com/dono-original/nome-repositorio.git
@@ -603,8 +611,8 @@ repositório remoto.
 
 <!-- -->
 
-2.  Se já tiver a branch e ela foi criada anteriormente, faça um merge
-    ou rebase para incorporá-la à versão atual:
+2.  **Se já tiver a branch** e ela foi criada anteriormente, faça um
+    merge ou rebase para incorporá-la à versão atual:
     - Merge:
 
       ``` bash
@@ -632,11 +640,12 @@ arquivos, adicionar novos arquivos ou pastas:
 - Modifique múltiplos arquivos em diferentes pastas.
 - Crie novos arquivos conforme necessário.
 - Exclua arquivos que não são mais necessários.
-- Mantenha as alterações focadas na feature/correção em que está
+- Mantenha as alterações focadas na funcionalidade/correção em que está
   trabalhando.
 - Realize commits frequentes para não perder o trabalho.
 
-1.  Verifique quais arquivos foram modificados:
+1.  Após realizar todas as modificações necessárias, verifique quais
+    arquivos foram modificados:
 
     ``` bash
     git status
@@ -652,7 +661,7 @@ arquivos, adicionar novos arquivos ou pastas:
 
 <!-- -->
 
-3.  Adicione as alterações ao stage:
+3.  Adicione as alterações à área de preparação (stage):
 
     - Específico:
 
@@ -706,9 +715,11 @@ arquivos, adicionar novos arquivos ou pastas:
 
 ### 4.2.6 Criando e Gerenciando Pull Request (PR)
 
-1.  Vá até a página do seu fork no GitHub e crie um Pull Request:
+1.  Após ter feito o envio das atualizações, vá até a página do seu fork
+    no GitHub e crie um Pull Request:
 
     - Clique em “New Pull Request” ou acesse a aba “Pull requests”.
+      XXXXXXXXXXXXXXXXXXXXXXXXXX
     - Inclua um título claro, uma descrição detalhada das alterações,
       referência a issues relacionadas (se houver), e evidências de
       testes, prints ou GIFs (se aplicável).
@@ -779,7 +790,7 @@ arquivos, adicionar novos arquivos ou pastas:
             use os comentários no PR para discutir e esclarecer pontos
             que você achou pertinente durante as alterações do código.
 
-    \- Por fim, o Proprietário do repositório verifica as correções
+    Por fim, o proprietário do repositório verifica as correções
     clicando na nova commit desse Pull Request no Github; então, confere
     as mudanças e depois termina a revisão cliclando m **Review
     changes**, adicionando um comentário na janela que se abre,
@@ -790,6 +801,13 @@ arquivos, adicionar novos arquivos ou pastas:
     Pull Request**.
 
 ### 4.2.7 Após Aprovação do PR
+
+Depois que seu Pull Request (PR) for **revisado e aprovado pelos
+mantenedores do projeto**, é importante realizar algumas etapas de
+limpeza e organização no seu repositório local e remoto. Isso mantém seu
+ambiente de trabalho organizado e sincronizado com o projeto principal.
+Siga os comandos abaixo para atualizar suas branches e remover as que
+não são mais necessárias
 
 1.  Retorne para a branch `main`:
 
@@ -815,7 +833,7 @@ arquivos, adicionar novos arquivos ou pastas:
 
 <!-- -->
 
-4.  Remova a branch de feature localmente:
+4.  Remova a branch de funcionalidade localmente:
 
     ``` bash
     git branch -d nome-branch
@@ -823,7 +841,7 @@ arquivos, adicionar novos arquivos ou pastas:
 
 <!-- -->
 
-5.  Remova a branch de feature do seu fork remoto:
+5.  Remova a branch de funcionalidade do seu fork remoto:
 
     ``` bash
     git push origin --delete nome-branch
