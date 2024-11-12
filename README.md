@@ -969,7 +969,35 @@ Esse comando exibirá uma lista com o histórico de commits e seus
 identificadores (hashes), que são códigos alfanuméricos de 8 caracteres.
 Identifique o commit anterior ao erro que você deseja corrigir.
 
-### 6.2 Resetar para um Commit Anterior
+## 6.2 Reverter ou Resetar o último commit
+
+Para apagar a última modificação que foi mesclada (merged) em um projeto
+usando Git, você tem algumas opções. Aqui está a forma mais segura de
+fazer isso:
+
+1.  Para reverter o último commit mesclado mantendo o histórico:
+
+    ``` bash
+    git revert HEAD
+    ```
+
+2.  Se você quer remover completamente o último commit (não recomendado
+    se já foi compartilhado):
+
+    ``` bash
+    git reset --hard HEAD~1
+    ```
+
+**Importante:**
+
+- `revert` é mais seguro pois cria um novo commit que desfaz as
+  alterações
+- `reset --hard` é mais arriscado pois apaga o histórico
+- Se o commit já foi enviado para o repositório remoto (pushed), use
+  `revert`
+- Se for local e ainda não compartilhado, pode usar `reset`
+
+### 6.3 Resetar para um Commit Anterior
 
 Para voltar a um commit anterior, execute o seguinte comando,
 substituindo o identificador do commit pelo hash correspondente:
@@ -982,7 +1010,7 @@ Esse comando redefine o repositório local para o estado do commit
 especificado, desfazendo qualquer alteração feita após ele. **Cuidado**:
 isso removerá qualquer mudança não comitada.
 
-### 6.3 Revertendo o Reset (Opcional)
+### 6.4 Revertendo o Reset (Opcional)
 
 Se você mudar de ideia e quiser restaurar o commit que acabou de
 resetar, pode voltar atrás executando novamente o comando `git reflog` e
@@ -992,7 +1020,7 @@ usando o identificador do commit que deseja recuperar:
 git reset --hard 5a6cc0a
 ```
 
-### 6.4 Sincronizar com o Repositório Remoto
+### 6.5 Sincronizar com o Repositório Remoto
 
 Após fazer um reset local, é importante garantir que o repositório
 remoto também esteja atualizado. Se o repositório remoto tiver commits
@@ -1010,7 +1038,7 @@ git push --force
 Esse comando força a sobrescrição do histórico remoto com o histórico
 local.
 
-### 6.5 Considerações Importantes
+### 6.6 Considerações Importantes
 
 - **Usar `git reset --hard` com cautela**: Esse comando remove
   permanentemente as alterações que não foram comitadas e pode alterar o
