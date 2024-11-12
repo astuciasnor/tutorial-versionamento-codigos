@@ -208,7 +208,7 @@ Esses comandos ligarão seu projeto ao Git, permitindo controle de versão, e o 
 
 ------------------------------------------------------------------------
 
-# **3. Clonando e Bifurcando um Repositório (Fork)**
+# **3. Clonando e Bifurcando um Repositório (Fork)** {#clonando-e-bifurcando-um-repositório-fork}
 
 Ao colaborar com outras pessoas em projetos no GitHub, pode ser útil não apenas clonar um repositório, mas também bifurcá-lo (fazer um *fork*). Isso permite que você trabalhe em uma cópia do repositório, mantendo a conexão com o original para futuras contribuições ou atualizações.
 
@@ -697,7 +697,8 @@ Se você fez alterações em arquivos, mas não criou uma branch e nem as comito
 1.  Busque atualizações do repositório original:
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git fetch upstream
+    git fetch upstream # Ou ...
+    git fetch origin
     ```
 
 <!-- -->
@@ -705,7 +706,8 @@ Se você fez alterações em arquivos, mas não criou uma branch e nem as comito
 2.  Integre as mudanças do `upstream`:
 
     ```{bash, echo = TRUE, eval = FALSE}
-    git merge upstream/main
+    git merge upstream/main  # Ou ...
+    git merge origin/main
     ```
 
 <!-- -->
@@ -750,7 +752,7 @@ Se você fez alterações em arquivos, mas não criou uma branch e nem as comito
 
 ## 5.5 Criando Pull Request e Procedimentos Seguintes
 
-Após enviar suas alterações para seu fork, passe para a parte de criar um Pull Request no GitHub e siga os procedimentos seguintes, conforme descrito anteriormente para proprietários ou colaboradores do repositório.
+Após enviar suas alterações para seu fork, passe para a parte de criar um Pull Request no GitHub e siga os procedimentos conforme descrito anteriormente para proprietários ([4.1.6. Criando e Gerenciando o Pull Request (PR)](#criando-e-gerenciando-o-pull-request-pr)) ou colaboradores ([4.2.6 Criando e Gerenciando Pull Request (PR)](#criando-e-gerenciando-pull-request-pr)) do repositório.
 
 ------------------------------------------------------------------------
 

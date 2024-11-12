@@ -883,7 +883,8 @@ alterações para ela, sem perder nada. Veja como proceder:
 1.  Busque atualizações do repositório original:
 
     ``` bash
-    git fetch upstream
+    git fetch upstream # Ou ...
+    git fetch origin
     ```
 
 <!-- -->
@@ -891,7 +892,8 @@ alterações para ela, sem perder nada. Veja como proceder:
 2.  Integre as mudanças do `upstream`:
 
     ``` bash
-    git merge upstream/main
+    git merge upstream/main  # Ou ...
+    git merge origin/main
     ```
 
 <!-- -->
@@ -937,9 +939,11 @@ alterações para ela, sem perder nada. Veja como proceder:
 ## 5.5 Criando Pull Request e Procedimentos Seguintes
 
 Após enviar suas alterações para seu fork, passe para a parte de criar
-um Pull Request no GitHub e siga os procedimentos seguintes, conforme
-descrito anteriormente para proprietários ou colaboradores do
-repositório.
+um Pull Request no GitHub e siga os procedimentos conforme descrito
+anteriormente para proprietários ([4.1.6. Criando e Gerenciando o Pull
+Request (PR)](#criando-e-gerenciando-o-pull-request-pr)) ou
+colaboradores ([4.2.6 Criando e Gerenciando Pull Request
+(PR)](#criando-e-gerenciando-pull-request-pr)) do repositório.
 
 ------------------------------------------------------------------------
 
