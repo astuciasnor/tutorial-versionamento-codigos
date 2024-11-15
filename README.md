@@ -969,7 +969,7 @@ Esse comando exibirá uma lista com o histórico de commits e seus
 identificadores (hashes), que são códigos alfanuméricos de 8 caracteres.
 Identifique o commit anterior ao erro que você deseja corrigir.
 
-## 6.2 Reverter ou Resetar o último commit
+## 6.2 Reverter ou Resetar o Último Commit
 
 Para apagar a última modificação que foi mesclada (merged) em um projeto
 usando Git, você tem algumas opções. Aqui está a forma mais segura de
