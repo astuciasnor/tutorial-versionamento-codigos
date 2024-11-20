@@ -1,0 +1,79 @@
+4. Versionamento de códigos como COLABORADOR Ou MANTENEDOR:
+4.1. Versionando enquanto mantenedor  ------------------------------------------
+
+- Preparação:
+git checkout main
+git pull origin main
+git checkout -b nome-branch
+git branch
+
+- Alterações no projeto:
+mude arquivo de pastas
+git status
+git add .
+git commit -m "Descrição das alterações"
+
+- Envio das alterações:
+git fetch origin
+git rebase origin/main
+git push origin nome-branch
+
+- Realização da Pull Request:
+Clique no botão Compare & Create Pull request e depois em Crea pull request
+
+- Atualização das alterações na main local:
+git checkout main
+git pull origin main
+git branch -d nome-branch
+git push origin --delete nome-branch
+
+4.2. Colaborador em Repositório com Fork -------------------------------------
+
+- Preparação:
+git checkout main
+git fetch upstream
+git merge upstream/main
+git push origin main
+git checkout -b nome-branch
+
+
+- Alterações no projeto:
+mude arquivo de pastas
+git status
+git add .
+git commit -m "Descrição das alterações"
+
+- Envio das alterações:
+git fetch upstream
+git rebase upstream/main
+git push origin nome-branch
+
+- Realização da Pull Request:
+Clique no botão Compare & Create Pull request e depois em Crea pull request
+
+- Atualização das alterações na main local:
+git checkout main
+git pull upstream main
+git push origin main
+git branch -d nome-branch
+git push origin --delete nome-branch
+
+5. Recuperando Trabalho sem Branch ------------------------------------------
+
+- Salvamento das Alterações Atuais: 
+git stash save "Alterações em progresso"
+
+- Atualização da main e Criação Branch
+git fetch upstream       # Para colaborador, ou: git fetch origin (Para Mantenedor)
+git merge upstream/main  # Para colaborador,  Ou: git merge origin/main (Para Mantenedor)
+git checkout -b sua-branch
+
+- Recuperação de Alterações salvas:
+git stash pop
+
+- Envio das alterações (Após Resolver Conflitos, se houver)):
+git add .
+git commit -m "Descrição das alterações recuperadas"
+git push origin sua-branch
+
+- Continuação a partir da Realização de Pull Request, conforme 4.1 ou 4.2 acima
