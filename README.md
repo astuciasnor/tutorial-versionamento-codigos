@@ -718,23 +718,32 @@ arquivos, adicionar novos arquivos ou pastas:
 1.  Após ter feito o envio das atualizações, vá até a página do seu fork
     no GitHub e crie um Pull Request:
 
-    - Clique em “New Pull Request” ou acesse a aba “Pull requests”.
-      XXXXXXXXXXXXXXXXXXXXXXXXXX
-    - Inclua um título claro, uma descrição detalhada das alterações,
-      referência a issues relacionadas (se houver), e evidências de
-      testes, prints ou GIFs (se aplicável).
+    - Clique no botão `Compare & Pull Request`. Outra forma de abrir a
+      Pull Request seria ir na branch criada e clicar no botão
+      `Contribute` e depois em em `Open pull request`;
+    - Somente se necessário, adicione uma descrição mais detalhada
+      explicando a Solicitação de Mudanças, pois a mensagem de commit
+      pode ser insuficiente.
 
 2.  Clique em “`Create Pull Request`” para submeter a solicitação de
-    mesclagem ao mantenedor do repo.
+    alteração e aguarde a mesclagem ao mantenedor do repo.
 
 3.  Após criar o PR:
 
+    O poprietário clica na mesnagem da commit para ver o que foi
+    alterado no projeto. Surge os arquivos modificados, destanco as
+    linhas mudadas.
+
     O **proprietário** pode tomar três decisões:
 
-    - **Aprovar a `Pull Request`, executando o Merge (Mesclagem com a
-      `main`)**
+    - **Aprovar a `Pull Request`.** Basta clicar em **`Review changes`**
+      e depois marca a oção **`Approve`** e então clica em
+      **`Submit review`** para encerrar a revisão. Surgirá a janela de
+      mesclar (Merge) a alteração com a main original. Clique em
+      **`Merge Pull Request`** e depois em **`Confirme merge`** .
 
-    - **Recusar a Pull request e** explicar porque recusou a modificação
+    - **Recusar a Pull request e** explicar porque recusou a
+      modificação.
 
     - **Ou solicitar modificações**. Se o proprietário precisar
       solicitar modificações, alguns procedimentos específicos deverão
@@ -792,13 +801,13 @@ arquivos, adicionar novos arquivos ou pastas:
 
     Por fim, o proprietário do repositório verifica as correções
     clicando na nova commit desse Pull Request no Github; então, confere
-    as mudanças e depois termina a revisão cliclando m **Review
-    changes**, adicionando um comentário na janela que se abre,
-    indicando se as modificações foram bem-sucedidas. Depois, seleciona
-    a opção **Approve** e clica em **Submit Review** para concluir. A
-    janela do Pull Request se abrirá novamente, permitindo que o
-    proprietário finalize o processo de mesclagem clicando em **Merge
-    Pull Request**.
+    as mudanças e depois termina a revisão cliclando em
+    **`Review changes`**, adicionando um comentário na janela que se
+    abre, indicando se as modificações foram bem sucedidas. Depois,
+    seleciona a opção **Approve** e clica em **`Submit Review`** para
+    concluir. A janela do Pull Request se abrirá novamente, permitindo
+    que o proprietário finalize o processo de mesclagem clicando em
+    **`Merge Pull Request` e `Confirme merge`**.
 
 ### 4.2.7 Após Aprovação do PR
 
