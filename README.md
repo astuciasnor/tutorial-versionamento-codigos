@@ -506,6 +506,11 @@ original.
 
     - O(s) mantenedor(es) pode(m) solicitar modificações antes do merge.
 
+4.  O mantenedor ou proprietário do projeto aprova as alterações e faz o
+    **`Merge`**
+
+    - Clique em `Merge pull request` e depois em `Confirm merge`
+
 ### 4.1.7 Após o Merge do PR
 
 Após o aviso de aprovação das alterações e realização do merge, você
@@ -532,9 +537,7 @@ criada, se necessário.
     git branch -d nome-branch
     ```
 
-<!-- -->
-
-5.  Remova a branch de feature do seu repositório remoto
+4.  Remova a branch de feature do seu repositório remoto
 
     ``` bash
     git push origin --delete nome-branch
@@ -632,7 +635,7 @@ repositório remoto.
 > método que preferir, levando em consideração o fluxo de trabalho da
 > equipe.
 
-### 4.2.4 Fazendo Alterações no Projeto
+### 4.2.4 Fazendo Alterações no Projeto e Comitando
 
 Nesta etapa, faça as alterações necessárias no projeto, como modificar
 arquivos, adicionar novos arquivos ou pastas:
@@ -691,6 +694,9 @@ arquivos, adicionar novos arquivos ou pastas:
 
 ### 4.2.5 Atualizando com Upstream Antes do PR
 
+É muito importante fazer esta etapa para ter certeza de que você possui
+a versão mais estável e atualizada em sua `main` local.
+
 1.  Busque as últimas alterações do upstream:
 
     ``` bash
@@ -726,15 +732,13 @@ arquivos, adicionar novos arquivos ou pastas:
       pode ser insuficiente.
 
 2.  Clique em “`Create Pull Request`” para submeter a solicitação de
-    alteração e aguarde a mesclagem ao mantenedor do repo.
+    alteração e aguarde a mesclagem do mantenedor do repo.
 
 3.  Após criar o PR:
 
-    O poprietário clica na mesnagem da commit para ver o que foi
+    O proprietário clica na mensagem da commit para ver o que foi
     alterado no projeto. Surge os arquivos modificados, destanco as
-    linhas mudadas.
-
-    O **proprietário** pode tomar três decisões:
+    linhas mudadas. O **proprietário** pode tomar três decisões:
 
     - **Aprovar a `Pull Request`.** Basta clicar em **`Review changes`**
       e depois marca a oção **`Approve`** e então clica em
@@ -816,7 +820,7 @@ mantenedores do projeto**, é importante realizar algumas etapas de
 limpeza e organização no seu repositório local e remoto. Isso mantém seu
 ambiente de trabalho organizado e sincronizado com o projeto principal.
 Siga os comandos abaixo para atualizar suas branches e remover as que
-não são mais necessárias
+não são mais necessárias:
 
 1.  Retorne para a branch `main`:
 
