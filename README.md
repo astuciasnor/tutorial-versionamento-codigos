@@ -12,7 +12,7 @@ sobre como usar o Git e o GitHub diretamente na interface do RStudio
 para controle de versão de códigos em projetos em R. Na primeira parte,
 utilizamos as funções do pacote `usethis`, e a partir da seção
 “Trabalhando com Versionamento”, passamos a usar diretamente os comandos
-do Git.
+do Git no terminal.
 
 # 1. Instruções Inicias para uso do Git/Github
 
@@ -21,9 +21,14 @@ do Git.
 2.  Baixe e instale o Git a partir do link:
     <https://git-scm.com/downloads>
 
-3.  Ao fim da instalçaão do Git, abra e feche o Git Bash. Feche e
+3.  Ao fim da instalação do Git, abra e feche o Git Bash. Feche e
     reinicie o Rstudio para reconhecer o local de instalação do Git
-    (Normalmente, fica em `C:/Program Files/Git/bin/git.exe`).
+    (Normalmente, fica em `C:/Program Files/Git/bin/git.exe`). Verifique
+    num terminal se foi instalado corretamente, digitando:
+
+    ``` bash
+    git --version
+    ```
 
 4.  Carregue o pacote `usethis` para configurar o Git para uso no
     Rstudio
@@ -59,7 +64,7 @@ usethis::use_git_config(user.name = "Seu Nome",
 
 2.  O comando acima abrirá o site do GitHub, onde você fará login e
     gerará o token (um código de 40 dígitos). Copie esse token, pois ele
-    só apareceerá uma vez.
+    só aparecerá uma vez.
 
 3.  Em seguida, adicione o token ao arquivo `.Renviron`, que armazena
     variáveis de ambiente no R. Isso garante que o token fique
@@ -75,7 +80,7 @@ usethis::use_git_config(user.name = "Seu Nome",
 4.  No arquivo `.Renviron`, crie uma nova linha para armazenar o token,
     conforme abaixo:
 
-`GITHUB_PAT=ghp_Ko3mdlNJpBzQ7lvzKTvGFg91f6HpBQlablalba`
+    `GITHUB_PAT=ghp_Ko3mdlNJpBzQ7lvzKTvGFg91f6HpBQlablalba`
 
 5.  Após adicionar o token copiado do site, acrescente uma linha e salve
     o arquivo.

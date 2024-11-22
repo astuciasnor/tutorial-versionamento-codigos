@@ -19,7 +19,7 @@ git rebase origin/main
 git push origin nome-branch
 
 - Realização da Pull Request:
-Clique no botão Compare & Create Pull request e depois em Crea pull request
+Clique no botão Compare & Create Pull request e depois em Create pull request
 
 - Atualização das alterações na main local:
 git checkout main
@@ -49,7 +49,7 @@ git rebase upstream/main
 git push origin nome-branch
 
 - Realização da Pull Request:
-Clique no botão Compare & Create Pull request e depois em Crea pull request
+Clique no botão Compare & Create Pull request e depois em Crea pull Request
 
 - Atualização das alterações na main local:
 git checkout main
@@ -64,7 +64,7 @@ git push origin --delete nome-branch
 git stash save "Alterações em progresso"
 
 - Atualização da main e Criação Branch
-git fetch upstream       # Para colaborador, ou: git fetch origin (Para Mantenedor)
+git fetch upstream       # Para colaborador,  Ou: git fetch origin (Para Mantenedor)
 git merge upstream/main  # Para colaborador,  Ou: git merge origin/main (Para Mantenedor)
 git checkout -b sua-branch
 
