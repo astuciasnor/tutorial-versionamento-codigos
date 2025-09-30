@@ -29,3 +29,4 @@ dados |>
   geom_smooth(method = "lm") +
   theme_minimal()
 
+# Mudando para testar o versionamento , 30.09.25
